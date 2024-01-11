@@ -4,7 +4,7 @@
 #' It is also used in the vignette "questionlink_tutorial".
 #'
 #' @format ## `questionlink_example_data`
-#' A data frame with 328,00 rows and 4 columns:
+#' A data frame with 328,000 rows and 4 columns:
 #' \describe{
 #'   \item{year}{A year in numeric format}
 #'   \item{question}{A question identifier.}
