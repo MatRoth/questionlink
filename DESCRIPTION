@@ -1,0 +1,27 @@
+Package: questionlink
+Title: Harmonizing single item survey questions on the same construct
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given = "Matthias", family = "Roth", email = "matthias.roth@gesis.org", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-4369-8106")),
+    person(given = "Ranjit Konrad", family = "Singh", email = "ranjit.singh@gesis.org", role = c("aut"),
+           comment = c(ORCID = "0000-0003-2205-1397"))
+  )
+Description: What the package does (one paragraph).
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Suggests: 
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    cli (>= 3.6.0),
+    dplyr (>= 1.0.10),
+    knitr (>= 1.41),
+    patchwork,
+    purrr (>= 1.0.1),
+    rlang (>= 1.0.6),
+    tidyr (>= 1.2.1)
+VignetteBuilder: knitr
