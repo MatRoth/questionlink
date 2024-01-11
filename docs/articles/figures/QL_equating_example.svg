@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 720 375" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <rect x="0" y="0" width="1" height="1" style="fill:white;"/>
+    <g>
+        <rect x="0" y="0" width="720" height="374.4" style="fill:white;stroke:white;stroke-width:0.75px;"/>
+        <rect x="381.82" y="0" width="338.18" height="374.4" style="fill:rgb(0,171,160);fill-opacity:0.1;"/>
+        <path d="M720,85.69L381.82,85.69" style="fill:none;fill-rule:nonzero;stroke:rgb(0,171,160);stroke-opacity:0.5;stroke-width:1.71px;"/>
+        <rect x="0" y="0" width="354.55" height="374.4" style="fill:rgb(73,117,147);fill-opacity:0.1;"/>
+        <path d="M0,85.69L354.55,85.69" style="fill:none;fill-rule:nonzero;stroke:rgb(73,117,147);stroke-opacity:0.5;stroke-width:1.71px;"/>
+        <g transform="matrix(1,0,0,1,409.09,36.65)">
+            <text x="0px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:28.45px;fill:rgb(0,171,160);">ALLBUS <tspan x="122.218px 141.708px 149.613px " y="0px 0px 0px ">A 5</tspan>pt</text>
+        </g>
+        <g transform="matrix(1,0,0,1,409.09,61.09)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.07px;fill:rgb(0,171,160);">target question</text>
+        </g>
+        <g transform="matrix(1,0,0,1,327.27,36.65)">
+            <text x="-114.897px" y="0px" style="font-family:'Arial-BoldMT', 'Arial', sans-serif;font-weight:700;font-size:28.45px;fill:rgb(73,117,147);">ISSP<tspan x="-50.579px -42.675px " y="0px 0px "> 4</tspan>pt</text>
+        </g>
+        <g transform="matrix(1,0,0,1,327.27,61.09)">
+            <text x="-61.687px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.07px;fill:rgb(73,117,147);">recoded</text>
+        </g>
+        <g transform="matrix(1,0,0,1,362.73,150.32)">
+            <text x="-55.036px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.07px;fill:rgb(73,117,147);">1.63</text>
+            <text x="-17.07px" y="0px" style="font-family:'MalgunGothic', 'Malgun Gothic', sans-serif;font-size:17.07px;fill:rgb(73,117,147);">▶</text>
+        </g>
+        <g transform="matrix(1,0,0,1,362.73,224.96)">
+            <text x="-55.036px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.07px;fill:rgb(73,117,147);">2.88</text>
+            <text x="-17.07px" y="0px" style="font-family:'MalgunGothic', 'Malgun Gothic', sans-serif;font-size:17.07px;fill:rgb(73,117,147);">▶</text>
+        </g>
+        <g transform="matrix(1,0,0,1,362.73,286.46)">
+            <text x="-55.036px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.07px;fill:rgb(73,117,147);">3.91</text>
+            <text x="-17.07px" y="0px" style="font-family:'MalgunGothic', 'Malgun Gothic', sans-serif;font-size:17.07px;fill:rgb(73,117,147);">▶</text>
+        </g>
+        <g transform="matrix(1,0,0,1,362.73,344.98)">
+            <text x="-55.036px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.07px;fill:rgb(73,117,147);">4.89</text>
+            <text x="-17.07px" y="0px" style="font-family:'MalgunGothic', 'Malgun Gothic', sans-serif;font-size:17.07px;fill:rgb(73,117,147);">▶</text>
+        </g>
+        <g transform="matrix(1,0,0,1,300,150.32)">
+            <text x="-137.56px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.07px;">(1) very interested</text>
+        </g>
+        <g transform="matrix(1,0,0,1,300,224.96)">
+            <text x="-141.353px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.07px;">(2) fairly interested</text>
+        </g>
+        <g transform="matrix(1,0,0,1,300,286.46)">
+            <text x="-166.032px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.07px;">(3) not very interested</text>
+        </g>
+        <g transform="matrix(1,0,0,1,300,344.98)">
+            <text x="-169.841px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.07px;">(4) not at all interested</text>
+        </g>
+        <g transform="matrix(1,0,0,1,376.36,112.7)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.07px;">— 1 very strongly</text>
+        </g>
+        <g transform="matrix(1,0,0,1,376.36,172.41)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.07px;">— 2 strongly</text>
+        </g>
+        <g transform="matrix(1,0,0,1,376.36,232.12)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.07px;">— 3 middling</text>
+        </g>
+        <g transform="matrix(1,0,0,1,376.36,291.84)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.07px;">— 4 not very</text>
+        </g>
+        <g transform="matrix(1,0,0,1,376.36,351.55)">
+            <text x="0px" y="0px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:17.07px;">— 5 not at all</text>
+        </g>
+    </g>
+</svg>
