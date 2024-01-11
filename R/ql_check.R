@@ -151,6 +151,7 @@ print_messages <- function(question_information){ # Add explainer lines before o
 }
 
 #' Prints the warning whether more than one version of the question is found
+#' @noRd
 print_is_singular <- function(question,question_information,is_singular_flag){
   if(is_singular_flag == T) return()
 
@@ -172,6 +173,7 @@ print_is_singular <- function(question,question_information,is_singular_flag){
 }
 
 #' Prints the warning whether all response options between min and max were found
+#' @noRd
 print_is_continuous <- function(question,question_information,is_continuous_flag){
   if(any(!is_continuous_flag) == T){
     year <- question_information$years_question[!is_continuous_flag] |>
@@ -186,6 +188,7 @@ print_is_continuous <- function(question,question_information,is_continuous_flag
 }
 
 #' Prints the warning whether negative values were found.
+#' @noRd
 print_has_no_negative <- function(question,question_information,has_no_negative_flag){
   if(any(!has_no_negative_flag) == T){
     year <- question_information$years_question[!has_no_negative_flag] |>

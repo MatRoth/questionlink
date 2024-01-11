@@ -177,26 +177,29 @@ summary.questionlink_prepare <- function(object,...){
 
 
 #' Plot function plotting found connections between questions
-#'
+#' @param x A questionlink prepare object.
+#' @param major_breaks_divisor Divisor for major breaks of the x-axis.
+#' @param minor_breaks_divisor Divisor for minor breaks of the x-axis.
+#' @param combine_population_plots How to handle plotting if multiple populations are supplied.
 #' @export
-plot.questionlink_prepare <- function(object,
+plot.questionlink_prepare <- function(x,
                                       major_breaks_divisor = 10,
                                       minor_breaks_divisor = 1,
                                       combine_population_plots = T){
 
-  if(attr(object,"population_flag") == F){
-    plot<- generate_plot(connections = object |> attr("connections"),
-                  data = object |> attr("data"),
+  if(attr(x,"population_flag") == F){
+    plot<- generate_plot(connections = x |> attr("connections"),
+                  data = x |> attr("data"),
                   major_breaks_divisor,
                   minor_breaks_divisor)
   } else {
-    nested_connections <- object |>
+    nested_connections <- x |>
       attr("connections") |>
       dplyr::mutate(population = source_population)|>
       dplyr::group_by(population) |>
       tidyr::nest(.key = "connections")
 
-    nested_data <- object |>
+    nested_data <- x |>
       attr("data") |>
       dplyr::group_by(population) |>
       tidyr::nest(.key = "data")
@@ -223,8 +226,8 @@ plot.questionlink_prepare <- function(object,
        #Align axis
        plots <- purrr::map(plots,\(cur_plot){
          suppressMessages(
-         cur_plot + ggplot2::xlim(c(min(attr(object,"data")$year),
-                                    max(attr(object,"data")$year))))})
+         cur_plot + ggplot2::xlim(c(min(attr(x,"data")$year),
+                                    max(attr(x,"data")$year))))})
        plot <- patchwork::wrap_plots(plots,ncol=1,guides = "collect") &
          ggplot2::theme(legend.position = 'bottom')
     } else {

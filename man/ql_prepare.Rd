@@ -19,9 +19,9 @@ ql_prepare(
 
 \item{use_relay}{A logical indicating whether relay connections should be calculated. Default = FALSE.}
 
-\item{allowed_direct_connections}{Further filtering of direct connections. See "Finding opportunities to harmonize" in the details.}
+\item{allowed_direct_connections}{Further filtering of direct connections. Not documented at the moment.}
 
-\item{allowed_relay_connections}{Further filtering of relay connections. See "Finding opportunities to harmonize" in the details.}
+\item{allowed_relay_connections}{Further filtering of relay connections.   Not documented at the moment.}
 
 \item{time_relaxation}{A numeric which specifies how much time is allowed to differ to establish direct connections. Default = 0.}
 
@@ -64,12 +64,3 @@ all data will be treated to originate from the same population.
 
 }
 
-\examples{
-ql_prepare(data = x,
-           use_relay = T,
-           allowed_direct_connections = list(year_source == year_target,
-                                             instrument_id_source == instrument_id_target
-
-           allowed_relay_connections = list(instrument_id_relay_source != instrument_id_relay_target,
-                                             insturment_id_source != instrument_id_relay_target))
-}

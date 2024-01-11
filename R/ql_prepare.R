@@ -25,8 +25,8 @@
 #'
 #' @param data A tibble/data.frame containing the data in a format outlined in the details below.
 #' @param use_relay A logical indicating whether relay connections should be calculated. Default = FALSE.
-#' @param allowed_direct_connections Further filtering of direct connections. See "Finding opportunities to harmonize" in the details.
-#' @param allowed_relay_connections Further filtering of relay connections. See "Finding opportunities to harmonize" in the details.
+#' @param allowed_direct_connections Further filtering of direct connections. Not documented at the moment.
+#' @param allowed_relay_connections Further filtering of relay connections.   Not documented at the moment.
 #' @param time_relaxation A numeric which specifies how much time is allowed to differ to establish direct connections. Default = 0.
 #' @param remove_circular_relays Logical whether circular relays (relays from the same source question to the same target question
 #'                               should be removed). Default is TRUE.
@@ -38,16 +38,6 @@
 #'                      Should be supplied if not all possible response options were used
 #'                      by respondents. See Details for more information.
 #' @return An object of type 'questionlink' 'questionlink_prepare'.
-#'
-#' @examples
-#' ql_prepare(data = x,
-#'            use_relay = T,
-#'            allowed_direct_connections = list(year_source == year_target,
-#'                                              instrument_id_source == instrument_id_target
-#'
-#'            allowed_relay_connections = list(instrument_id_relay_source != instrument_id_relay_target,
-#'                                              insturment_id_source != instrument_id_relay_target))
-
 #' @export
 ql_prepare <- function(data,
                        use_relay = F,

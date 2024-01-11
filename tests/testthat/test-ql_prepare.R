@@ -1,4 +1,4 @@
-data <- readRDS(system.file("sample_data.rds",package = "questionlink")) #external data
+data <- questionlink_example_data #external data
 
 
 test_that("validate_input_is.dataframe", {

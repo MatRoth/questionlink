@@ -6,3 +6,4 @@ inst/create_sim_data.R
 /doc/
 /Meta/
 docs
+inst/questionlink_example_data.rds

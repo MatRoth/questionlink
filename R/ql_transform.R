@@ -20,10 +20,7 @@
 #' If circular relays are set to TRUE (default is FALSE) during the invocation of ql_prepare(), the results of ql_transform()
 #' contain the numerical equivalents that were found using the relays. If no circular relays are used, only the
 #' results of ql_transformed contain the same response options for the target questions as were supplied in the data.
-#'
-#'
-#' @examples
-#' ql_prepare(data) |> ql_harmonize() |> ql_transform()
+
 
 #' @export
 ql_transform <- function(ql_harmonize_object,target_question,new_data){ # questionlink_harmonize -> questionlink_transform
