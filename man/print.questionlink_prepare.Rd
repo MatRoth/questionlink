@@ -4,7 +4,7 @@
 \alias{print.questionlink_prepare}
 \title{Print information on ql_prepare object}
 \usage{
-\method{print}{questionlink_prepare}(x, ...)
+\method{print}{questionlink_prepare}(x)
 }
 \arguments{
 \item{x}{An object of type "questionlink_prepare"}

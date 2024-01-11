@@ -122,7 +122,7 @@ print_messages <- function(question_information){ # Add explainer lines before o
     }
 
     if(all(purrr::flatten_lgl(cur_check_res))){
-      cli::cli_h2("{cur_q} ✔")
+      cli::cli_h2("{cur_q} \u2714")
       return(invisible())
     }
     # Name instrument

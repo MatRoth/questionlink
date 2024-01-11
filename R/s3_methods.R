@@ -7,7 +7,7 @@
 #' @param x An object of type "questionlink_prepare"
 #'
 #' @export
-print.questionlink_prepare <- function(x,...){
+print.questionlink_prepare <- function(x){
   # calculated values
   distinct_question_pairs <- attributes(x)$connections |>
     dplyr::select(source_question,target_question) |>
@@ -27,7 +27,7 @@ print.questionlink_prepare <- function(x,...){
   # print to command line
   cli::cli_h1("QuestionLink Object Type: QuestionLink Prepare")
   cli::cli_par()
-  cli::cli_text("Current stage of the QuestionLink workflow: {.strong ql_prepare ✔} -> ql_harmonize -> ql_transform")
+  cli::cli_text("Current stage of the QuestionLink workflow: {.strong ql_prepare \u2714} -> ql_harmonize -> ql_transform")
   cli::cli_end()
   cli::cli_par()
   cli::cli_li("Number of unique question combinations: {.val {distinct_question_pairs}}")
@@ -150,7 +150,7 @@ summary.questionlink_prepare <- function(object,...){
   #print to command line
   cli::cli_h1("Summary: QuestionLink Prepare")
   cli::cli_par()
-  cli::cli_text("Current stage of the QuestionLink workflow: {.strong ql_prepare ✔} -> ql_harmonize -> ql_transform")
+  cli::cli_text("Current stage of the QuestionLink workflow: {.strong ql_prepare \u2714} -> ql_harmonize -> ql_transform")
   cli::cli_end()
   cli::cli_par()
   cli::cli_li("Number of unique question combinations: {.val {distinct_question_pairs}}")
@@ -335,7 +335,7 @@ print.questionlink_harmonize <- function(x,...){
   # print to command line
   cli::cli_h1("QuestionLink Object Type: QuestionLink Prepare")
   cli::cli_par()
-  cli::cli_text("Current stage of the QuestionLink workflow: {.strong ql_prepare ✔} -> {.strong ql_harmonize ✔} -> ql_transform")
+  cli::cli_text("Current stage of the QuestionLink workflow: {.strong ql_prepare \u2714} -> {.strong ql_harmonize \u2714} -> ql_transform")
   cli::cli_end()
   cli::cli_par()
   cli::cli_li("Number of unique question combinations: {.val {distinct_question_pairs}}")
@@ -404,7 +404,7 @@ summary.questionlink_harmonize <- function(object,...){
   #print to command line
   cli::cli_h1("Summary: QuestionLink Prepare")
   cli::cli_par()
-  cli::cli_text("Current stage of the QuestionLink workflow: {.strong ql_prepare ✔} -> ql_harmonize -> ql_transform")
+  cli::cli_text("Current stage of the QuestionLink workflow: {.strong ql_prepare \u2714} -> ql_harmonize -> ql_transform")
   cli::cli_end()
   cli::cli_par()
   cli::cli_li("Number of unique question combinations: {.val {distinct_question_pairs}}")

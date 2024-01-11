@@ -60,7 +60,3 @@ Data should only be harmonized within one population. If no population is suppli
 all data will be treated to originate from the same population.
 }
 }
-\section{Finding opportunities to harmonize}{
-
-}
-

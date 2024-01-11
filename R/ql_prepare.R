@@ -19,10 +19,6 @@
 #'                           Data should only be harmonized within one population. If no population is supplied
 #'                           all data will be treated to originate from the same population.
 #'
-#' @section Finding opportunities to harmonize:
-#'
-#'
-#'
 #' @param data A tibble/data.frame containing the data in a format outlined in the details below.
 #' @param use_relay A logical indicating whether relay connections should be calculated. Default = FALSE.
 #' @param allowed_direct_connections Further filtering of direct connections. Not documented at the moment.
