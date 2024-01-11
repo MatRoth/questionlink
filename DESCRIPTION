@@ -25,3 +25,4 @@ Imports:
     rlang (>= 1.0.6),
     tidyr (>= 1.2.1)
 VignetteBuilder: knitr
+URL: https://matroth.github.io/questionlink/
