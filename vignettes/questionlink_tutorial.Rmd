@@ -157,7 +157,11 @@ With the `sample_n()` function, we look at 10 randomly selected rows from the 80
 
 ```{r}
 
-library(tidyverse)
+library(dplyr)
+library(patchwork)
+library(rlang)
+library(tibble)
+library(tidyr)
 library(kableExtra)
 library(patchwork)
 library(viridis)
