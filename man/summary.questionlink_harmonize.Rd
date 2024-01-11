@@ -2,10 +2,15 @@
 % Please edit documentation in R/s3_methods.R
 \name{summary.questionlink_harmonize}
 \alias{summary.questionlink_harmonize}
-\title{Summary function, printing full list connections}
+\title{Summarizes question and connection information found in the data}
 \usage{
 \method{summary}{questionlink_harmonize}(object, ...)
 }
+\arguments{
+\item{object}{A questionlink_prepare object.}
+
+\item{...}{Not used.}
+}
 \description{
-Summary function, printing full list connections
+Summarizes question and connection information found in the data
 }

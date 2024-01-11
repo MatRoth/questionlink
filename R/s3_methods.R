@@ -5,9 +5,10 @@
 #' over the number of found connections.
 #'
 #' @param x An object of type "questionlink_prepare"
+#' @param ... Not used.
 #'
 #' @export
-print.questionlink_prepare <- function(x){
+print.questionlink_prepare <- function(x,...){
   # calculated values
   distinct_question_pairs <- attributes(x)$connections |>
     dplyr::select(source_question,target_question) |>
@@ -51,8 +52,10 @@ print.questionlink_prepare <- function(x){
   invisible(x)
 }
 
-#' Summary function, printing full list connections
-#'
+#' Summarizes question and connection information found in the data
+#' 
+#' @param object A questionlink_prepare object.
+#' @param ... Not used.
 #' @export
 summary.questionlink_prepare <- function(object,...){
   # calculated values
@@ -359,8 +362,9 @@ print.questionlink_harmonize <- function(x,...){
   invisible(x)
 }
 
-#' Summary function, printing full list connections
-#'
+#' Summarizes question and connection information found in the data
+#' @param object A questionlink_prepare object.
+#' @param ... Not used.
 #' @export
 summary.questionlink_harmonize <- function(object,...){
   # calculated values

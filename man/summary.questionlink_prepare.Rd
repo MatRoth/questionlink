@@ -2,10 +2,15 @@
 % Please edit documentation in R/s3_methods.R
 \name{summary.questionlink_prepare}
 \alias{summary.questionlink_prepare}
-\title{Summary function, printing full list connections}
+\title{Summarizes question and connection information found in the data}
 \usage{
 \method{summary}{questionlink_prepare}(object, ...)
 }
+\arguments{
+\item{object}{A questionlink_prepare object.}
+
+\item{...}{Not used.}
+}
 \description{
-Summary function, printing full list connections
+Summarizes question and connection information found in the data
 }
