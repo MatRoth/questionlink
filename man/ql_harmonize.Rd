@@ -21,6 +21,3 @@ This function is step 2 of 3 in the questionlink harmonization workflow.
 
 Depending on the number of harmonization opportunities, this may take some time.
 }
-\examples{
-ql_prepare(data) |> ql_harmonize()
-}

@@ -5,11 +5,20 @@
 \title{Plot function plotting found connections between questions}
 \usage{
 \method{plot}{questionlink_prepare}(
-  object,
+  x,
   major_breaks_divisor = 10,
   minor_breaks_divisor = 1,
   combine_population_plots = T
 )
+}
+\arguments{
+\item{x}{A questionlink prepare object.}
+
+\item{major_breaks_divisor}{Divisor for major breaks of the x-axis.}
+
+\item{minor_breaks_divisor}{Divisor for minor breaks of the x-axis.}
+
+\item{combine_population_plots}{How to handle plotting if multiple populations are supplied.}
 }
 \description{
 Plot function plotting found connections between questions

@@ -1,4 +1,4 @@
-sample_data <- readRDS(system.file("sample_data.rds",package = "questionlink")) #external data
+sample_data <- questionlink_example_data
 test_that("Snapshot-tests of ql_check outputs",{
 #is_singular test -> Checks whether multiple versions of the same question are present
  expect_snapshot(ql_prepare(sample_data |>

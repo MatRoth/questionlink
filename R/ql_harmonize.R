@@ -10,9 +10,7 @@
 #' @param ql_prepare_object An object of type questionlink_prepare, created by 'ql_prepare()'
 #'
 #' @return An object of type 'questionlink' 'questionlink_harmonize'
-#'
-#' @examples
-#' ql_prepare(data) |> ql_harmonize()
+
 
 #' @export
 ql_harmonize <- function(ql_prepare_object){ # questionlink_prepare -> questionlink_harmonize
