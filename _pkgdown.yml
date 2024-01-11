@@ -3,7 +3,7 @@ template:
   bootstrap: 5
 
 reference:
-- title: Harmonization pipeline
+- title: Harmonization pipline functions
   desc:  Execute these functions to harmonize your data.
 - contents:
   - starts_with("ql_")
@@ -11,3 +11,8 @@ reference:
 - contents:
   - starts_with("summ")
   - starts_with("plot")
+  - starts_with("print")
+- title: Example data
+  desc: Example dataset used in the vignette.
+- contents:
+  - questionlink_example_data
