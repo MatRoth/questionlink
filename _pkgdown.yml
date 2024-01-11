@@ -2,3 +2,12 @@ url: https://matroth.github.io/questionlink/
 template:
   bootstrap: 5
 
+reference:
+- title: Harmonization pipeline
+  desc:  Execute these functions to harmonize your data.
+- contents:
+  - starts_with("ql_")
+- title: s3 functions
+- contents:
+  - starts_with("summ")
+  - starts_with("plot")
