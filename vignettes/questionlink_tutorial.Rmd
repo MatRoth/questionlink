@@ -1,5 +1,5 @@
 ---
-title: "question_link_tutorial"
+title: "Questionlink tutorial"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{question_link_tutorial}
