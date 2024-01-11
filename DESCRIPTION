@@ -19,6 +19,7 @@ Config/testthat/edition: 3
 Imports: 
     cli (>= 3.6.0),
     dplyr (>= 1.0.10),
+    forcats,
     ggplot2,
     kableExtra,
     knitr (>= 1.41),

@@ -159,13 +159,14 @@ With the `sample_n()` function, we look at 10 randomly selected rows from the 80
 
 library(dplyr)
 library(patchwork)
-library(rlang)
 library(tibble)
 library(tidyr)
+library(purrr)
 library(kableExtra)
 library(patchwork)
 library(viridis)
 library(ggplot2)
+library(forcats)
 
 library(questionlink)
 
