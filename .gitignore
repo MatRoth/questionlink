@@ -3,3 +3,5 @@
 .RData
 .Ruserdata
 inst/create_sim_data.R
+/doc/
+/Meta/
