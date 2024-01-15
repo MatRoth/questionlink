@@ -1,7 +1,7 @@
 
 #' Print information on ql_prepare object
 #'
-#' Displays progress in the questionlink workflow and a highlevel overview
+#' Displays progress in the questionlink workflow and a high level overview
 #' over the number of found connections.
 #'
 #' @param x An object of type "questionlink_prepare"
@@ -52,7 +52,7 @@ print.questionlink_prepare <- function(x,...){
   invisible(x)
 }
 
-#' Summarizes question and connection information found in the data
+#' Summarizes question and connection information found in the data.
 #' 
 #' @param object A questionlink_prepare object.
 #' @param ... Not used.
@@ -240,6 +240,8 @@ plot.questionlink_prepare <- function(x,
   return(plot)
 }
 
+#' @noRd
+#' Helper function for s3 plot method
 generate_plot <- function(connections,data,major_breaks_divisor,minor_breaks_divisor){
 
   # Determin the number of different questions in the harmonization data
@@ -362,7 +364,7 @@ print.questionlink_harmonize <- function(x,...){
   invisible(x)
 }
 
-#' Summarizes question and connection information found in the data
+#' Summarizes question and connection information found in the data.
 #' @param object A questionlink_prepare object.
 #' @param ... Not used.
 #' @export

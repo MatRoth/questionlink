@@ -7,7 +7,7 @@ reference:
   desc:  Execute these functions to harmonize your data.
 - contents:
   - starts_with("ql_")
-- title: s3 functions
+- title: s3 methods
 - contents:
   - starts_with("summ")
   - starts_with("plot")
