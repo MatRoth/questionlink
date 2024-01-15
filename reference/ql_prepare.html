@@ -32,7 +32,13 @@ in a Random Groups design (OSE-RG) by finding all possible opportunities for har
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
-      <ul class="navbar-nav"></ul></div>
+      <ul class="navbar-nav"><li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/MatRoth/questionlink/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul></div>
 
     
   </div>
@@ -40,7 +46,7 @@ in a Random Groups design (OSE-RG) by finding all possible opportunities for har
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Prepare data for harmonization</h1>
-      
+      <small class="dont-index">Source: <a href="https://github.com/MatRoth/questionlink/blob/HEAD/R/ql_prepare.R" class="external-link"><code>R/ql_prepare.R</code></a></small>
       <div class="d-none name"><code>ql_prepare.Rd</code></div>
     </div>
 
@@ -72,14 +78,6 @@ in a Random Groups design (OSE-RG) by finding all possible opportunities for har
 <dd><p>A logical indicating whether relay connections should be calculated. Default = FALSE.</p></dd>
 
 
-<dt>allowed_direct_connections</dt>
-<dd><p>Further filtering of direct connections. Not documented at the moment.</p></dd>
-
-
-<dt>allowed_relay_connections</dt>
-<dd><p>Further filtering of relay connections.   Not documented at the moment.</p></dd>
-
-
 <dt>time_relaxation</dt>
 <dd><p>A numeric which specifies how much time is allowed to differ to establish direct connections. Default = 0.</p></dd>
 
@@ -90,7 +88,7 @@ should be removed). Default is TRUE.</p></dd>
 
 
 <dt>scale_min_max</dt>
-<dd><p>A named list which contains numeric vectors of length two, e.g. 'list("Question A" = c(0,5))'.
+<dd><p>A named list which contains numeric vectors of length two, e.g. <code>list("Question A" = c(0,5))</code>.
 The name of the numeric vector should correspond to one
 of the questions supplied in 'data'.The first element of
 the numeric vector is the minimum of a scale,
@@ -103,12 +101,14 @@ by respondents. See Details for more information.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>An object of type 'questionlink' 'questionlink_prepare'.</p>
+<p>An object of type <code>questionlink</code></p>
+<p></p>
+<p><code>questionlink_prepare</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>OSE-RG can be used when data from two question measuring the same construct are
-used in the same population at roughly similar times (e.g. the same year).</p>
+used in the same population at roughly similar times.</p>
 <p>The data has to be supplied as a tibble/data.frame in a "long format".
 The data.frame/tibble has to have the following columns names and variable types:</p><ul><li><p>year: Numeric variable which specifies the year in which the survey was conducted. Can not be of type Date or Factor. If other units of time are needed look here.</p></li>
 <li><p>question: Character variable which specifies which kind of question was asked.</p></li>
