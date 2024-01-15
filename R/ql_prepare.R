@@ -21,8 +21,6 @@
 #'
 #' @param data A tibble/data.frame containing the data in a format outlined in the details below.
 #' @param use_relay A logical indicating whether relay connections should be calculated. Default = FALSE.
-#' @param allowed_direct_connections Further filtering of direct connections. Not documented at the moment.
-#' @param allowed_relay_connections Further filtering of relay connections.   Not documented at the moment.
 #' @param time_relaxation A numeric which specifies how much time is allowed to differ to establish direct connections. Default = 0.
 #' @param remove_circular_relays Logical whether circular relays (relays from the same source question to the same target question
 #'                               should be removed). Default is TRUE.
@@ -49,14 +47,12 @@ ql_prepare <- function(data,
 
   # find connections
   direct_connections <- optional_col_check_result$data |>
-    find_direct_connections(time_relaxation) |>
-    apply_custom_filter(allowed_direct_connections) # does nothing if arg is empty
+    find_direct_connections(time_relaxation) 
 
   if(use_relay == T){
     relay_connections <- direct_connections |>
       find_relay_connections(remove_circular_relays,
-                             time_relaxation) |>
-      apply_custom_filter(allowed_relay_connections)
+                             time_relaxation) 
 
     connections <- dplyr::bind_rows(direct_connections,relay_connections) |>
       dplyr::relocate(source_question,.before = source_year) |> #enforce identical column order for source, relay and target column

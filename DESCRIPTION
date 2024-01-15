@@ -30,7 +30,7 @@ Imports:
     tidyr (>= 1.2.1),
     viridis
 VignetteBuilder: knitr
-URL: https://matroth.github.io/questionlink/
+URL: https://matroth.github.io/questionlink/, https://github.com/MatRoth/questionlink
 Depends: 
     R (>= 2.10)
 LazyData: true

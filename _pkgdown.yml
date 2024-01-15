@@ -16,3 +16,8 @@ reference:
   desc: Example dataset used in the vignette.
 - contents:
   - questionlink_example_data
+  
+navbar:
+  structure:
+    left:  [intro, reference, articles, tutorials, news]
+    right: [github]
