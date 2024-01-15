@@ -19,16 +19,12 @@ ql_prepare(
 
 \item{use_relay}{A logical indicating whether relay connections should be calculated. Default = FALSE.}
 
-\item{allowed_direct_connections}{Further filtering of direct connections. Not documented at the moment.}
-
-\item{allowed_relay_connections}{Further filtering of relay connections.   Not documented at the moment.}
-
 \item{time_relaxation}{A numeric which specifies how much time is allowed to differ to establish direct connections. Default = 0.}
 
 \item{remove_circular_relays}{Logical whether circular relays (relays from the same source question to the same target question
 should be removed). Default is TRUE.}
 
-\item{scale_min_max}{A named list which contains numeric vectors of length two, e.g. 'list("Question A" = c(0,5))'.
+\item{scale_min_max}{A named list which contains numeric vectors of length two, e.g. \code{list("Question A" = c(0,5))}.
 The name of the numeric vector should correspond to one
 of the questions supplied in 'data'.The first element of
 the numeric vector is the minimum of a scale,
@@ -37,7 +33,7 @@ Should be supplied if not all possible response options were used
 by respondents. See Details for more information.}
 }
 \value{
-An object of type 'questionlink' 'questionlink_prepare'.
+An object of type \code{questionlink} \code{questionlink_prepare}.
 }
 \description{
 The function prepares the data for harmonization with Observed Score Equating
@@ -45,7 +41,7 @@ in a Random Groups design (OSE-RG) by finding all possible opportunities for har
 }
 \details{
 OSE-RG can be used when data from two question measuring the same construct are
-used in the same population at roughly similar times (e.g. the same year).
+used in the same population at roughly similar times.
 
 The data has to be supplied as a tibble/data.frame in a "long format".
 The data.frame/tibble has to have the following columns names and variable types:

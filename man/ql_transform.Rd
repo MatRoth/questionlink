@@ -7,27 +7,27 @@
 ql_transform(ql_harmonize_object, target_question, new_data)
 }
 \arguments{
-\item{ql_harmonize_object}{An object of type questionlink_harmonize, created by 'ql_harmonize()'}
+\item{ql_harmonize_object}{An object of type questionlink_harmonize, created by \code{ql_harmonize()}}
 
 \item{target_question}{A character value specifying the question which serves as the transformation target.}
 
 \item{new_data}{A data frame or tibble which contains the following columns "question", "response". The data frame
-also needs to contain the column "population", if the column was also used in the 'ql_prepare()' step.}
+also needs to contain the column "population", if the column was also used in the \code{ql_prepare()} step.}
 }
 \value{
-An object of type 'questionlink' 'questionlink_harmonize'
+An object of type \code{questionlink} \code{questionlink_harmonize}
 }
 \description{
-Transforms data using recoding tables obtained by using 'ql_prepare() |> ql_harmoninze().
+Transforms data using recoding tables obtained by using \code{ql_prepare() |> ql_harmoninze()}.
 }
 \details{
 This function is step 3 of 3 in the questionlink harmonization workflow.
-This function either transforms data which is supplied in the harmonization workflow, or transformes
+This function either transforms data which is supplied in the harmonization workflow, or transforms
 new data, which can be added via the "new_data" argument.
+\subsection{Handling of circular relays in \code{ql_transform()}:}{
 
-Circular relays:
-
-If circular relays are set to TRUE (default is FALSE) during the invocation of ql_prepare(), the results of ql_transform()
-contain the numerical equivalents that were found using the relays. If no circular relays are used, only the
-results of ql_transformed contain the same response options for the target questions as were supplied in the data.
+If circular relays are set to TRUE (default is FALSE) during the invocation of \code{ql_prepare()}, harmonizations from
+question A to question A contain the numerical equivalents that were found using the relays. If no circular relays are used, the
+results of \code{ql_transformed} contain the same response options for the target questions as were supplied in the data for question A to question A.
+}
 }

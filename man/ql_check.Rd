@@ -7,11 +7,12 @@
 ql_check(ql_prepare_object)
 }
 \description{
-ql_check() performs plausbility checks on the supplied data. It prints messages
+\code{ql_check()} performs plausbility checks on the supplied data. It prints messages
 if inconsistencies in the data are found which may influence the results of the harmonization.
-In particular, three checks are performed:
 }
-\section{Check if multiple versions of the same question are found}{
+\details{
+Three checks are performed:
+\subsection{(1) Multiple versions of the same question:}{
 
 Each question should be associated with one set of response options. If a
 one set of response options was found for one year (e.g. 1,2,3,4 in the year 2000) and another set was
@@ -20,17 +21,17 @@ or falsly exculded cases. Make sure to include only one version of the question,
 results.
 }
 
-\section{Check if negative responses are found}{
+\subsection{(2) Negative responses:}{
 
 Negative values are used to represent missing values of some sort in most survey data files.
-Check whether negative values are valid responses in your datafile (and ignore the message if they are valid).
+Check whether negative values are valid responses in your data (and ignore the message if they are valid).
 }
 
-\section{Check if response options are not used in a scale}{
+\subsection{(3) Response options not used in scale:}{
 
 Missing response options (e.g. in a 4 point scale 1,2,4, response option 3 would be missing), can lead to
 false harmonization results. If response options are missing, check if responses were falsely excluded from the
-dataset. This check utilizes the information supplied by the 'scale_min_max' argument in ql_prepare().
-If scale_min_max is left empty, the minimum and maximum found in the data will be used.
+dataset. This check utilizes the information supplied by the \code{scale_min_max} argument in \code{ql_prepare()}.
+If \code{scale_min_max} is left empty, the minimum and maximum found in the data will be used.
 }
-
+}
