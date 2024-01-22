@@ -7,8 +7,6 @@
 ql_prepare(
   data,
   use_relay = F,
-  allowed_direct_connections = NULL,
-  allowed_relay_connections = NULL,
   time_relaxation = 0,
   remove_circular_relays = TRUE,
   scale_min_max = list()
