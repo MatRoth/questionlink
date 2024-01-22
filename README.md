@@ -1,5 +1,4 @@
 # questionlink <a href="https://matroth.github.io/questionlink/"><img src="man/figures/logo.png" align="right" height="139" alt="questionlink website" /></a>
-# questionlink
 
 ## About
 
