@@ -28,10 +28,16 @@ The code below simulates response data for four questions which all capture the 
 
 # Loading necessary packages
 
-library(tidyverse)
+library(dplyr)
+library(patchwork)
+library(tibble)
+library(tidyr)
+library(purrr)
 library(kableExtra)
 library(patchwork)
 library(viridis)
+library(ggplot2)
+library(forcats)
 
 ## Installing questionlink with devtools
 #devtools::install_github("https://github.com/MatRoth/questionlink")
