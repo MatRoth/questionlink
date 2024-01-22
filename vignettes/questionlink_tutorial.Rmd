@@ -156,6 +156,7 @@ The code works as follows step-by-step:
 With the `sample_n()` function, we look at 10 randomly selected rows from the 80000 rows of the simulated data frame. We see that each row has a specific `year`, a target construct mean `target_construct_mean` and a specific simulated value `simulated_true_score`.
 
 ```{r}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
 
 library(dplyr)
 library(patchwork)

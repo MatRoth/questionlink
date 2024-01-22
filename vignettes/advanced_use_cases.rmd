@@ -24,7 +24,11 @@ If you have not already, we suggest working through the [QuestionLink tutorial](
 
 The code below simulates response data for four questions which all capture the same construct in a population. This process is explained in detail in the tutorial. This simulated dataset will be used in the code examples later on.
 
+<details>
+<summary>Data simulation code (click to unfold)</summary>
+
 ```{r}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
 
 # Loading necessary packages
 
@@ -148,6 +152,8 @@ qlink_format_df <- qlink_format_df |>
   select(-valid_year)
 
 ```
+
+</details>
 
 We simulate data from 1980 to 2020 with deliberate gaps in the time series for each question so that we can showcase the purpose of QuestionLink.
 
