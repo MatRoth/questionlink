@@ -2,7 +2,7 @@
 % Please edit documentation in R/s3_methods.R
 \name{summary.questionlink_harmonize}
 \alias{summary.questionlink_harmonize}
-\title{Summarizes question and connection information found in the data}
+\title{Summarizes question and connection information found in the data.}
 \usage{
 \method{summary}{questionlink_harmonize}(object, ...)
 }
@@ -12,5 +12,5 @@
 \item{...}{Not used.}
 }
 \description{
-Summarizes question and connection information found in the data
+Summarizes question and connection information found in the data.
 }

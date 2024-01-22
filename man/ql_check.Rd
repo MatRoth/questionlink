@@ -6,6 +6,9 @@
 \usage{
 ql_check(ql_prepare_object)
 }
+\arguments{
+\item{ql_prepare_objecct}{An object of type \code{questionlink_prepare}.}
+}
 \description{
 \code{ql_check()} performs plausbility checks on the supplied data. It prints messages
 if inconsistencies in the data are found which may influence the results of the harmonization.

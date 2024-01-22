@@ -2,7 +2,7 @@
 % Please edit documentation in R/s3_methods.R
 \name{summary.questionlink_prepare}
 \alias{summary.questionlink_prepare}
-\title{Summarizes question and connection information found in the data}
+\title{Summarizes question and connection information found in the data.}
 \usage{
 \method{summary}{questionlink_prepare}(object, ...)
 }
@@ -12,5 +12,5 @@
 \item{...}{Not used.}
 }
 \description{
-Summarizes question and connection information found in the data
+Summarizes question and connection information found in the data.
 }

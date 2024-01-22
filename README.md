@@ -11,7 +11,7 @@ To install questionlink from github, you can use one of the following commands:
 
 ``` r
 # Installing questionlink with devtools
-devtools::devtools::install_github("https://github.com/MatRoth/questionlink")
+devtools::install_github("https://github.com/MatRoth/questionlink")
 
 # Installing questionlink with pak
 pak::pak("https://github.com/MatRoth/questionlink")

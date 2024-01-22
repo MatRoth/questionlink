@@ -12,6 +12,6 @@
 \item{...}{Not used.}
 }
 \description{
-Displays progress in the questionlink workflow and a highlevel overview
+Displays progress in the questionlink workflow and a high level overview
 over the number of found connections.
 }

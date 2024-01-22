@@ -3,7 +3,7 @@
 #' `ql_check()` performs plausbility checks on the supplied data. It prints messages
 #' if inconsistencies in the data are found which may influence the results of the harmonization.
 #'
-#' @param ql_prepare_objecct An obeject of type `questionlink_prepare`.
+#' @param ql_prepare_objecct An object of type `questionlink_prepare`.
 #'
 #' @details
 #' 

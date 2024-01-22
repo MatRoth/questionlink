@@ -240,8 +240,8 @@ plot.questionlink_prepare <- function(x,
   return(plot)
 }
 
-#' @noRd
 #' Helper function for s3 plot method
+#' @noRd
 generate_plot <- function(connections,data,major_breaks_divisor,minor_breaks_divisor){
 
   # Determin the number of different questions in the harmonization data
