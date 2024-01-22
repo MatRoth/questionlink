@@ -1,20 +1,20 @@
 ---
-title: "Questionlink tutorial"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{questionlink_tutorial}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+title: "QuestionLink Tutorial"
+execute:
+  warning: false
+  message: false
+format:
+  html:
+    toc: true
+    toc-location: right
+    code-fold: true
+    embed-resources: true
+knitr: 
+  opts_chunk: 
+    R.options: 
+      knitr.table.html.attr: "quarto-disable-processing=true"
+editor: visual
 ---
-
-```{r, include = FALSE}
-options(rmarkdown.html_vignette.check_title = FALSE)
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
-
 
 # 00 Motivation and methodological background
 
@@ -102,7 +102,7 @@ The result after harmonization then looks like this:
 
 ![](figures/05_result.jpg)
 
-The result of this recoding of responses to B is that the distribution shape (e.g., mean and standard deviation) now align between A and B. Now it is important no note that this does not only harmonize the current random groups data. Instead, once such a recoding table has been derived from the random groups data, we can use it to harmonize the two questions in many other data sets as well. The only assumption that we need is that the two questions work the same in those other samples as well (see the section on \[#Population invariance\]).
+The result of this recoding of responses to B is that the distribution shape (e.g., mean and standard deviation) now align between A and B. Now it is important no note that this does not only harmonize the current random groups data. Instead, once such a recoding table has been derived from the random groups data, we can use it to harmonize the two questions in many other data sets as well. The only assumption that we need is that the two questions work the same in those other samples as well (see the section on [Population invariance](https://matroth.github.io/questionlink/articles/advanced_use_cases#population-invariance)).
 
 ### Finding random groups data
 
@@ -138,7 +138,7 @@ The final and most powerful tool are **relay connections**. They become possible
 
 With these three types of connections, our chances to be able to harmonize the questions for a construct we are interested in have risen dramatically. At the same time, if we find and apply all these connections we are left with many equating solutions (\~ recoding tables) for each question pair (and in both directions; e.g., A-\>B & B-\>A). And most likely, these solutions will fluctuate due to random sampling errors. What QuestionLink now does is to aggregate all harmonization solutions (one for each connection between two questions in one direction) into a single, robust harmonization solution.
 
-After finding all possible connections and performing equatings for each connection, QuestionLink then **summarizes all possible solutions** for a question pair (in one direction) into a single recoding table. This is done be calculating the median equivalent value for each score of the question we want to harmonize. The result is that random errors are mitigated to a large extent. This might seem abstract, but we will demonstrate this in practical terms in the section [retrieving recoding tables].
+After finding all possible connections and performing equatings for each connection, QuestionLink then **summarizes all possible solutions** for a question pair (in one direction) into a single recoding table. This is done be calculating the median equivalent value for each score of the question we want to harmonize. The result is that random errors are mitigated to a large extent. This might seem abstract, but we demonstrate this in the article of advanced use cases in the section [retrieving recoding tables](https://matroth.github.io/questionlink/articles/advanced_use_cases#retrieving-recoding-tables).
 
 # 01 Setting up a simulated population
 
@@ -167,6 +167,12 @@ library(patchwork)
 library(viridis)
 library(ggplot2)
 library(forcats)
+
+## Installing questionlink with devtools
+#devtools::install_github("https://github.com/MatRoth/questionlink")
+## Installing questionlink with pak
+##install.packages("pak")
+#pak::pak("https://github.com/MatRoth/questionlink")
 
 library(questionlink)
 
@@ -1137,7 +1143,7 @@ prepare_object |> summary()
 
 If we call `plot()` on a `ql_prepare()` object, we receive an overview of the time series for each question. This overview also show us, which questions can be harmonized with QuestionLink. If the question is connected "to all" in green, then we can harmonize all other questions to that question as a target. If the question is connected "to some" in yellow then we can harmonize some but not all other questions to that question as a target. If a question is connected "to none" in red, then this question cannot be harmonized with QuestionLink.
 
-In practice, this means we can harmonize all questions if at least one question is connected "to all". If we then choose this question as the target question, then all questions are harmonized (even if they themselves are only connected "to some")! There will be a clear example for this in the section [choosing the right target question].
+In practice, this means we can harmonize all questions if at least one question is connected "to all". If we then choose this question as the target question, then all questions are harmonized (even if they themselves are only connected "to some")! There will be a clear example for this in the article on advanced use cases under the section [choosing the right target question](https://matroth.github.io/questionlink/articles/advanced_use_cases#choosing-the-right-target-question).
 
 ```{r}
 
@@ -1167,7 +1173,7 @@ So we have to break our data to showcase `ql_check()`.
 
 **Not all response between minimum and maximum used**
 
-If a scale has possible responses from 1 to 5, it is not impossible, but unlikely that there are no respondents who chose a 3. Thus, `ql_check()` throws us a warning "Not all response options between the minimum and maximum of \[Question\] were used" and then details the year(s) in which that was the case. To show this, we filter all cases where respondents chose 3 to question B:
+If a scale has possible responses from 1 to 5, it is not impossible, but unlikely that there are no respondents who chose a 3. Thus, `ql_check()` throws us a warning "Not all response options between the minimum and maximum of *Question* were used" and then details the year(s) in which that was the case. To show this, we filter all cases where respondents chose 3 to question B:
 
 ```{r}
 #| warning: true
@@ -1185,7 +1191,7 @@ qlink_format_df |>
 
 At this point you might ask how QuestionLink knows what the minimum and maximum score of each question is. In our case, it infers that information empirically from the data. However, a cleaner way is to provide such response scale information as meta-data to `ql_prepare()`. This will be covered in the "advanced use cases" section.
 
-**Multiple Versions of \[question\] were found**
+**Multiple Versions of *question* were found**
 
 The next way to break our data is by deleting all responses of 5 from question C, but only in one year (1980). As it happens, 5 is also the maximum score of C. This triggers the warning "multiple Versions of C were found". `ql_check` then details the two "versions" of C it found. One version with the values 1, 2, 3, 4 and another version with the values 1, 2, 3, 4, 5. It also lists the respective years. This way we can easily find instances where we read in invalid values, for example.
 
@@ -1222,4 +1228,3 @@ qlink_format_df |>
   ) |> 
   ql_check()
 ```
-
