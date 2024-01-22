@@ -443,7 +443,9 @@ that each row has a specific <code>year</code>, a target construct mean
 <code>target_construct_mean</code> and a specific simulated value
 <code>simulated_true_score</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html" class="external-link">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>warning <span class="op">=</span> <span class="cn">FALSE</span>, message <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## </span></span>
 <span><span class="co">## Attaching package: 'dplyr'</span></span></code></pre>
 <pre><code><span><span class="co">## The following objects are masked from 'package:stats':</span></span>
@@ -513,13 +515,90 @@ simulated_true_score
 <tbody>
 <tr>
 <td style="text-align:right;">
+1993
+</td>
+<td style="text-align:right;">
+-0.175
+</td>
+<td style="text-align:right;">
+0.5978893
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
 2019
 </td>
 <td style="text-align:right;">
 0.475
 </td>
 <td style="text-align:right;">
-0.5816908
+1.2969621
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1988
+</td>
+<td style="text-align:right;">
+-0.300
+</td>
+<td style="text-align:right;">
+-0.6373826
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1981
+</td>
+<td style="text-align:right;">
+-0.475
+</td>
+<td style="text-align:right;">
+1.2296524
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2016
+</td>
+<td style="text-align:right;">
+0.400
+</td>
+<td style="text-align:right;">
+1.9796426
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:right;">
+0.450
+</td>
+<td style="text-align:right;">
+1.3151201
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2011
+</td>
+<td style="text-align:right;">
+0.275
+</td>
+<td style="text-align:right;">
+1.4260425
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:right;">
+0.375
+</td>
+<td style="text-align:right;">
+0.7125662
 </td>
 </tr>
 <tr>
@@ -530,95 +609,18 @@ simulated_true_score
 -0.400
 </td>
 <td style="text-align:right;">
--0.5122443
+1.9603513
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-2016
+2008
 </td>
 <td style="text-align:right;">
-0.400
+0.200
 </td>
 <td style="text-align:right;">
-1.1909875
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-0.475
-</td>
-<td style="text-align:right;">
-1.0481680
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1985
-</td>
-<td style="text-align:right;">
--0.375
-</td>
-<td style="text-align:right;">
--0.5034204
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-0.475
-</td>
-<td style="text-align:right;">
-1.5593001
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
--0.075
-</td>
-<td style="text-align:right;">
-1.1321616
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2016
-</td>
-<td style="text-align:right;">
-0.400
-</td>
-<td style="text-align:right;">
--0.8835941
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
--0.075
-</td>
-<td style="text-align:right;">
--0.2528933
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2016
-</td>
-<td style="text-align:right;">
-0.400
-</td>
-<td style="text-align:right;">
--1.0250836
+-0.2275053
 </td>
 </tr>
 </tbody>
@@ -638,7 +640,6 @@ and steadily increasing, year after year.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.25</span>, <span class="fl">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span><span class="op">)</span>,</span>
 <span>                     minor_breaks <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'</span></span></code></pre>
 <p><img src="questionlink_tutorial_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
 </div>
 <div class="section level4">
@@ -658,7 +659,7 @@ do not have meaningful values. They are simply chosen by R so that the
 area under the curve is one, so that the probability of the whole curve
 is one, since it represents all values. As an intuition, think of
 density plots as histograms for continuous data.)</em></p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sim_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">%%</a></span> <span class="fl">10</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co">#only select full decades</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">simulated_true_score</span>, color <span class="op">=</span> <span class="va">year</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
@@ -682,7 +683,7 @@ continuous scores into discrete responses at certain thresholds, using
 our <code>cut_responses()</code> helper function. (Please note that this
 is an very simplistic view on actual response processes, but it serves
 our needs here just fine.)</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># helper function that allows us to cut continuous values into ordinal chunks</span></span>
 <span><span class="va">cut_responses</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">breaks</span><span class="op">)</span><span class="op">{</span></span>
 <span>  <span class="va">ord_vec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html" class="external-link">cut</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="cn">Inf</span>, <span class="va">breaks</span>, <span class="cn">Inf</span><span class="op">)</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
@@ -695,7 +696,7 @@ the density plot represent the thresholds with which we will cut this
 continuous construct into ordinal responses. Values up to the first
 (leftmost) threshold will become the response score “1”, then between
 the first and second threshold, a response score of “2” and so on.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cutting_example</span> <span class="op">&lt;-</span> <span class="va">sim_df</span> <span class="op">|&gt;</span> </span>
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op">==</span> <span class="fl">2000</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
@@ -714,7 +715,7 @@ the first and second threshold, a response score of “2” and so on.</p>
 <p>Below we see the resulting simulated response distribution. The
 barchart shows the relative frequency of the five possible response
 options.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cutting_example</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">example_response</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>`relative frequency (%)` <span class="op">=</span> <span class="fl">100</span> <span class="op">*</span> <span class="va">n</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -740,7 +741,7 @@ mean response) and multiplicatively stretched (different standard
 deviation). Question D, meanwhile, is a 10-point instrument, to
 demonstrate that QuestionLink can handle different numbers of response
 options with ease.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">response_thresholds_A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1.5</span>, <span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">1.5</span><span class="op">)</span></span>
 <span><span class="va">response_thresholds_B</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">response_thresholds_A</span> <span class="op">-</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">*</span> <span class="fl">1.5</span></span>
 <span><span class="va">response_thresholds_C</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">response_thresholds_A</span> <span class="op">+</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">*</span> <span class="fl">0.7</span></span>
@@ -790,111 +791,19 @@ question_D
 -0.5
 </td>
 <td style="text-align:right;">
--1.2770552
-</td>
-<td style="text-align:right;">
-2
+0.4342700
 </td>
 <td style="text-align:right;">
 3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1980
-</td>
-<td style="text-align:right;">
--0.5
-</td>
-<td style="text-align:right;">
--0.2733288
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-3
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1980
-</td>
-<td style="text-align:right;">
--0.5
-</td>
-<td style="text-align:right;">
--1.4344846
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1980
-</td>
-<td style="text-align:right;">
--0.5
-</td>
-<td style="text-align:right;">
--0.7805269
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1980
-</td>
-<td style="text-align:right;">
--0.5
-</td>
-<td style="text-align:right;">
-0.8313125
 </td>
 <td style="text-align:right;">
 4
 </td>
 <td style="text-align:right;">
-4
+3
 </td>
 <td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-6
+5
 </td>
 </tr>
 <tr>
@@ -905,7 +814,99 @@ question_D
 -0.5
 </td>
 <td style="text-align:right;">
-0.3794741
+0.0706217
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1980
+</td>
+<td style="text-align:right;">
+-0.5
+</td>
+<td style="text-align:right;">
+-0.2895732
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1980
+</td>
+<td style="text-align:right;">
+-0.5
+</td>
+<td style="text-align:right;">
+-1.2779674
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1980
+</td>
+<td style="text-align:right;">
+-0.5
+</td>
+<td style="text-align:right;">
+-1.5845568
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1980
+</td>
+<td style="text-align:right;">
+-0.5
+</td>
+<td style="text-align:right;">
+0.4694172
 </td>
 <td style="text-align:right;">
 3
@@ -936,7 +937,7 @@ associated <code>year</code> (in which the response was collected) and a
 instruments). Transforming data from wide to long format is easily done
 with <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code>. Below you see the first six
 rows in the new, long format data frame:</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_df</span> <span class="op">&lt;-</span>   <span class="va">sim_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">year</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"question"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"question"</span><span class="op">)</span>, values_to <span class="op">=</span> <span class="st">"response"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -965,7 +966,7 @@ response
 A
 </td>
 <td style="text-align:right;">
-2
+3
 </td>
 </tr>
 <tr>
@@ -976,7 +977,7 @@ A
 B
 </td>
 <td style="text-align:right;">
-3
+4
 </td>
 </tr>
 <tr>
@@ -987,7 +988,7 @@ B
 C
 </td>
 <td style="text-align:right;">
-1
+3
 </td>
 </tr>
 <tr>
@@ -998,7 +999,7 @@ C
 D
 </td>
 <td style="text-align:right;">
-1
+5
 </td>
 </tr>
 <tr>
@@ -1020,7 +1021,7 @@ A
 B
 </td>
 <td style="text-align:right;">
-3
+4
 </td>
 </tr>
 </tbody>
@@ -1031,7 +1032,7 @@ B
 <p>Here we see the simulated response distributions across all four
 question variants and across the years. Note that the plot only shows
 the full decades 1980, 1990, 2000, 2010, and 2020.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">%%</a></span> <span class="fl">10</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">question</span>, <span class="va">response</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -1065,7 +1066,7 @@ situation, when different survey programs begin or end their time series
 at different intervals.</p>
 <p>First, the current simulated data without gaps in the
 time-series:</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_all_years_df</span> <span class="op">&lt;-</span> <span class="va">qlink_format_df</span></span>
 <span></span>
 <span><span class="va">plot_question_years</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">combined_df</span><span class="op">)</span><span class="op">{</span></span>
@@ -1090,8 +1091,6 @@ time-series:</p>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span> <span class="fu">plot_question_years</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `summarise()` has grouped output by 'year'. You can override using the</span></span>
-<span><span class="co">## `.groups` argument.</span></span></code></pre>
 <p><img src="questionlink_tutorial_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
 <div class="section level5">
 <h5 id="showcasing-the-time-relaxation-feature">Showcasing the time-relaxation feature<a class="anchor" aria-label="anchor" href="#showcasing-the-time-relaxation-feature"></a>
@@ -1108,7 +1107,7 @@ the section on <a href="#types-of-connections">types of
 connections</a>.)</p>
 <p>For this reason, we make it so that questions are only asked every
 two years. In even years for A, B and C, but in odd years for D!</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_df</span> <span class="op">&lt;-</span> <span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">question</span> <span class="op">==</span> <span class="st">"A"</span> <span class="op">&amp;</span> <span class="va">year</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">%%</a></span> <span class="fl">2</span> <span class="op">!=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">question</span> <span class="op">==</span> <span class="st">"B"</span> <span class="op">&amp;</span> <span class="va">year</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">%%</a></span> <span class="fl">2</span> <span class="op">!=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -1117,8 +1116,6 @@ two years. In even years for A, B and C, but in odd years for D!</p>
 <span></span>
 <span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">plot_question_years</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `summarise()` has grouped output by 'year'. You can override using the</span></span>
-<span><span class="co">## `.groups` argument.</span></span></code></pre>
 <p><img src="questionlink_tutorial_files/figure-html/unnamed-chunk-12-1.png" width="700"></p>
 </div>
 <div class="section level5">
@@ -1136,7 +1133,7 @@ B. (For more information on relay connections, see the section on <a href="#type
 simplicity’s sake, we assume that each question is used by one of four
 different surveys sampling the same population, but with different waves
 schedules.)</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Defining gaps in time series by defining the "possible years" for each question</span></span>
 <span></span>
 <span><span class="va">possible_years_lists</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
@@ -1155,8 +1152,6 @@ schedules.)</p>
 <span></span>
 <span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">plot_question_years</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `summarise()` has grouped output by 'year'. You can override using the</span></span>
-<span><span class="co">## `.groups` argument.</span></span></code></pre>
 <p><img src="questionlink_tutorial_files/figure-html/unnamed-chunk-13-1.png" width="700"></p>
 </div>
 </div>
@@ -1171,7 +1166,7 @@ questions in one pass. Later, we will discuss each step and the
 respective options one by one. For now, note how we can complete the
 entire harmonization process in one pipe with four lines of code. As an
 example, we harmonize towards the format of question “A”.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">harmonized_df</span> <span class="op">&lt;-</span> <span class="va">qlink_format_df</span> <span class="op">|&gt;</span>  </span>
 <span>  <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span>use_relay <span class="op">=</span> <span class="cn">TRUE</span>, time_relaxation <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_harmonize.html">ql_harmonize</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span>  </span>
@@ -1182,7 +1177,7 @@ example, we harmonize towards the format of question “A”.</p>
 <p>Did it work? Let us find out by plotting the mean scores across the
 time-series: Once unharmonized and once harmonized with
 QuestionLink.</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">unharmonized_mean_plot</span> <span class="op">&lt;-</span> <span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html" class="external-link">geom_smooth</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">response</span>, color <span class="op">=</span> <span class="va">question</span><span class="op">)</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span><span class="op">+</span></span>
@@ -1199,9 +1194,6 @@ QuestionLink.</p>
 <span></span>
 <span><span class="co"># Combining both plots with patchwork::</span></span>
 <span><span class="va">unharmonized_mean_plot</span> <span class="op">+</span> <span class="va">harmonized_mean_plot</span></span></code></pre></div>
-<pre><code><span><span class="co">## `geom_smooth()` using formula = 'y ~ x'</span></span>
-<span><span class="co">## `geom_smooth()` using formula = 'y ~ x'</span></span></code></pre>
-<pre><code><span><span class="co">## Warning: Removed 53 rows containing non-finite values (`stat_smooth()`).</span></span></code></pre>
 <p><img src="questionlink_tutorial_files/figure-html/unnamed-chunk-15-1.png" width="700"></p>
 <p>QuestionLink has harmonized both the differences in the mean and the
 differences in standard deviation. Hence, intercept and slope of our
@@ -1211,7 +1203,7 @@ instruments. It also means that QuestionLink has harmonized the growth
 rate over time (i.e., the slope), by harmonizing the standard deviation
 of all four questions. Below, we veryify this by looking at the standard
 deviation directly:</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">unharmonized_sd_plot</span> <span class="op">&lt;-</span> <span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">question</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span></span>
@@ -1222,11 +1214,9 @@ deviation directly:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"unharmonized"</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">3</span><span class="op">)</span>, minor_breaks <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `summarise()` has grouped output by 'year'. You can override using the</span></span>
-<span><span class="co">## `.groups` argument.</span></span></code></pre>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">harmonized_sd_plot</span> <span class="op">&lt;-</span> <span class="va">harmonized_df</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">harmonized_sd_plot</span> <span class="op">&lt;-</span> <span class="va">harmonized_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">question</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span></span>
 <span>    `standard deviation` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">median_equivalent</span><span class="op">)</span></span>
@@ -1236,11 +1226,9 @@ deviation directly:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"QuestionLink harmonized"</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">3</span><span class="op">)</span>, minor_breaks <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span><span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `summarise()` has grouped output by 'year'. You can override using the</span></span>
-<span><span class="co">## `.groups` argument.</span></span></code></pre>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">unharmonized_sd_plot</span> <span class="op">+</span> <span class="va">harmonized_sd_plot</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">unharmonized_sd_plot</span> <span class="op">+</span> <span class="va">harmonized_sd_plot</span></span></code></pre></div>
 <p><img src="questionlink_tutorial_files/figure-html/unnamed-chunk-16-1.png" width="700"></p>
 </div>
 <div class="section level3">
@@ -1292,7 +1280,7 @@ of each question in each year separately.</li>
 following mutate statement so that the <code><a href="https://rdrr.io/r/base/scale.html" class="external-link">scale()</a></code> function
 standardizes by the correct mean and sd.</p>
 </div>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">z_example_df</span> <span class="op">&lt;-</span> <span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
 <span>    response_z_overall <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/scale.html" class="external-link">scale</a></span><span class="op">(</span><span class="va">response</span><span class="op">)</span></span>
@@ -1310,7 +1298,7 @@ standardizes by the correct mean and sd.</p>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
 <span>    response_z_by_year_question <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/scale.html" class="external-link">scale</a></span><span class="op">(</span><span class="va">response</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">z_overall_plot</span> <span class="op">&lt;-</span> <span class="va">z_example_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html" class="external-link">geom_smooth</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">response_z_overall</span>, color <span class="op">=</span> <span class="va">question</span><span class="op">)</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span><span class="op">+</span></span>
@@ -1355,12 +1343,6 @@ standardizes by the correct mean and sd.</p>
 <span></span>
 <span><span class="co"># Combining both plots with patchwork::</span></span>
 <span><span class="va">z_overall_plot</span> <span class="op">+</span> <span class="va">z_by_question_plot</span> <span class="op">+</span> <span class="va">z_by_year_plot</span> <span class="op">+</span> <span class="va">z_by_year_question_plot</span> <span class="op">+</span>   <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html" class="external-link">plot_layout</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `geom_smooth()` using formula = 'y ~ x'</span></span></code></pre>
-<pre><code><span><span class="co">## Warning: Removed 424 rows containing non-finite values</span></span>
-<span><span class="co">## (`stat_smooth()`).</span></span></code></pre>
-<pre><code><span><span class="co">## `geom_smooth()` using formula = 'y ~ x'</span></span>
-<span><span class="co">## `geom_smooth()` using formula = 'y ~ x'</span></span>
-<span><span class="co">## `geom_smooth()` using formula = 'y ~ x'</span></span></code></pre>
 <p><img src="questionlink_tutorial_files/figure-html/unnamed-chunk-18-1.png" width="700"></p>
 <p>All four z-standardization solutions do not look as we might have
 hoped. Let us look at each version in turn to discuss what went
@@ -1403,7 +1385,7 @@ well as the maximum and minimum score of a target question
 (<code>max_target</code> and <code>min_target</code>). The function the
 linearly “stretches” responses of x towards the different scale point
 format of the target question.</p>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">linear_stretching</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, </span>
 <span>                              <span class="va">max_source</span>, </span>
 <span>                              <span class="va">max_target</span>, </span>
@@ -1419,7 +1401,7 @@ format of the target question.</p>
 <p>Here an example, where we stretch a 5-point response scale
 <code>x</code> towards a 7-point response scale format
 <code>y</code>.</p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="cn">NA</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
 <span>  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span>,</span>
@@ -1436,15 +1418,13 @@ format of the target question.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">18</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html" class="external-link">scale_y_discrete</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Warning: Removed 4 rows containing missing values (`geom_point()`).</span></span></code></pre>
-<pre><code><span><span class="co">## Warning: Removed 4 rows containing missing values (`geom_text()`).</span></span></code></pre>
 <p><img src="questionlink_tutorial_files/figure-html/unnamed-chunk-20-1.png" width="700"></p>
 <p>Other variants of linear stretching are <strong>POMP</strong>
 (percentage of maximum possible) or <strong>scaling to a range from 0 to
 1</strong>. Both are simply variants of linear stretching.</p>
 <p>Pomp would transform <code>x</code> with the scores 1, 2, 3, 4, and 5
 to these values:</p>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">linear_stretching</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>, </span>
 <span>                  max_source <span class="op">=</span> <span class="fl">5</span>, <span class="co"># original 5-point scale</span></span>
 <span>                  max_target <span class="op">=</span> <span class="fl">100</span>, <span class="co"># 7-point target</span></span>
@@ -1454,7 +1434,7 @@ to these values:</p>
 <pre><code><span><span class="co">## [1] "0; 25; 50; 75; 100"</span></span></code></pre>
 <p>And scaling to a range from 0 to 1 would transform <code>x</code>
 with the scores 1, 2, 3, 4, and 5 to these values:</p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">linear_stretching</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>, </span>
 <span>                  max_source <span class="op">=</span> <span class="fl">5</span>, <span class="co"># original 5-point scale</span></span>
 <span>                  max_target <span class="op">=</span> <span class="fl">1</span>, <span class="co"># 7-point target</span></span>
@@ -1469,7 +1449,7 @@ with the scores 1, 2, 3, 4, and 5 to these values:</p>
 towards the format of question A.</p>
 <p>If you will recall, these were the minimum and maximum response
 scores for each question:</p>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">question</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>min_score <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">response</span><span class="op">)</span>,</span>
@@ -1483,7 +1463,7 @@ scores for each question:</p>
 <span><span class="co">## <span style="color: #BCBCBC;">4</span> D                1        10</span></span></code></pre>
 <p>In other words, we already see that only scores of “D” will be
 transformed at all.</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">stretched_df</span> <span class="op">&lt;-</span> <span class="va">qlink_format_df</span> <span class="op">|&gt;</span>  </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
 <span>    stretched_response <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">question</span> <span class="op">==</span> <span class="st">"D"</span>,</span>
@@ -1491,7 +1471,7 @@ transformed at all.</p>
 <span>                                <span class="va">response</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p>Let us look at the result visually:</p>
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">unharmonized_plot</span> <span class="op">&lt;-</span> <span class="va">qlink_format_df</span> <span class="op">|&gt;</span>    </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>   </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html" class="external-link">geom_smooth</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">response</span>, color <span class="op">=</span> <span class="va">question</span><span class="op">)</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span><span class="op">+</span>   </span>
@@ -1509,8 +1489,6 @@ transformed at all.</p>
 <span><span class="co"># Combining both plots with patchwork:: </span></span>
 <span></span>
 <span><span class="va">unharmonized_plot</span> <span class="op">+</span> <span class="va">stretched_plot</span> </span></code></pre></div>
-<pre><code><span><span class="co">## `geom_smooth()` using formula = 'y ~ x'</span></span>
-<span><span class="co">## `geom_smooth()` using formula = 'y ~ x'</span></span></code></pre>
 <p><img src="questionlink_tutorial_files/figure-html/unnamed-chunk-25-1.png" width="700"></p>
 <p>Linear stretching did not harmonize responses in any meaningful way.
 The goal was the format of question “A”, but all other questions deviate
@@ -1562,7 +1540,7 @@ this toy example for data in <strong>wide format</strong>. Here,
 waves. However, for many analyses such as multilevel-models (and for
 QuestionLink), we need to bring the data into long format where <em>each
 row is one observation</em>.</p>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">wide_format_example</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
 <span>  respondent <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>,</span>
 <span>  year_2000 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span><span class="op">)</span>,</span>
@@ -1664,7 +1642,7 @@ we can easily lengthen that data with <code><a href="https://tidyr.tidyverse.org
 we see the first six rows of the new data frame in long format. There
 are now three rows per respondent because we have one row per
 observation (i.e., one row per wave).</p>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">wide_format_example</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"year_"</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"wave"</span>, values_to <span class="op">=</span> <span class="st">"score"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -1777,7 +1755,7 @@ contains <strong>no missing values</strong>. This is easily realized in
 (tidyverse) R with <code>tidyr::drop_NA</code>. However, if there are
 many missing values in some or all source surveys, we recommend that you
 look at our in depth discussion of missing values later on.</p>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">format_table</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <table class="table table" style="width: auto !important; ">
 <thead><tr>
@@ -1800,7 +1778,7 @@ response
 B
 </td>
 <td style="text-align:right;">
-3
+4
 </td>
 </tr>
 <tr>
@@ -1811,7 +1789,29 @@ B
 C
 </td>
 <td style="text-align:right;">
-1
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1980
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1980
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:right;">
+3
 </td>
 </tr>
 <tr>
@@ -1836,28 +1836,6 @@ C
 2
 </td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1980
-</td>
-<td style="text-align:left;">
-B
-</td>
-<td style="text-align:right;">
-3
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1980
-</td>
-<td style="text-align:left;">
-C
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -1868,7 +1846,7 @@ C
 </h3>
 <p>With a data frame in the correct format, we can begin harmonization
 by calling the QuestionLink function <code>ql_prepare</code>:</p>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prepare_object</span> <span class="op">&lt;-</span> <span class="va">qlink_format_df</span> <span class="op">|&gt;</span>  <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>This function call results in a QuestionLink object that contains
 information about all opportunities to harmonize the questions into each
@@ -1878,7 +1856,7 @@ calculations have not been performed.</p>
 source data set!</p>
 <p>We can extract the connections using the function <code><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr()</a></code>
 :</p>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prepare_object</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"connections"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -2054,7 +2032,7 @@ both questions have data from that year.</p>
 <p>A more convenient way to look at the connections QuestionLink has
 found is to use its <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code> method:</p>
 <hr>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prepare_object</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## </span></span></code></pre>
 <pre><code><span><span class="co">## <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Summary: QuestionLink Prepare</span> <span style="color: #00BBBB;">───────────────────────────────────────────────</span></span></span></code></pre>
@@ -2132,7 +2110,7 @@ which contains all found connections. Here we find only “direct”
 connections, because we have not allowed any of the more advanced
 QuestionLink features yet. Direct connections are instances where two
 questions are asked in the same year.</p>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prepare_object</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"connections"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">source_question</span>,<span class="va">target_question</span>,<span class="va">connection_type</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -2141,8 +2119,6 @@ questions are asked in the same year.</p>
 <span>                       values_from <span class="op">=</span> <span class="va">n</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">format_table</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `summarise()` has grouped output by 'source_question', 'target_question'. You</span></span>
-<span><span class="co">## can override using the `.groups` argument.</span></span></code></pre>
 <table class="table table" style="width: auto !important; ">
 <thead><tr>
 <th style="text-align:left;">
@@ -2205,11 +2181,9 @@ B
 <p>Our current problem is apparently that there are no direct
 connections between some of the questions. This becomes apparent if we
 again consider the years in which each question was used:</p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">plot_question_years</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `summarise()` has grouped output by 'year'. You can override using the</span></span>
-<span><span class="co">## `.groups` argument.</span></span></code></pre>
 <p><img src="questionlink_tutorial_files/figure-html/unnamed-chunk-33-1.png" width="700"></p>
 <p>We cannot harmonize directly between “A” and “B”, because there is a
 long gap between their two time-series (from 1991 to 1999). We also
@@ -2237,7 +2211,7 @@ would harmonize Question C ion 1990 not only to D in 1991 but also in
 mismatch.</p>
 <p>We activate the feature by specifying it in <code><a href="../reference/ql_prepare.html">ql_prepare()</a></code>
 as <code>time_relaxation = 1</code>:</p>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span>time_relaxation <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## </span></span></code></pre>
 <pre><code><span><span class="co">## <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">QuestionLink Object Type: QuestionLink Prepare</span> <span style="color: #00BBBB;">──────────────────────────────</span></span></span></code></pre>
@@ -2264,7 +2238,7 @@ as <code>time_relaxation = 1</code>:</p>
 can be easily verified by using <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code>. However, to save
 space in this document, lets take a look directly at the relevant
 table:</p>
-<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span>time_relaxation <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"connections"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">source_question</span>,<span class="va">target_question</span>,<span class="va">connection_type</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -2273,8 +2247,6 @@ table:</p>
 <span>                       values_from <span class="op">=</span> <span class="va">n</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">format_table</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `summarise()` has grouped output by 'source_question', 'target_question'. You</span></span>
-<span><span class="co">## can override using the `.groups` argument.</span></span></code></pre>
 <table class="table table" style="width: auto !important; ">
 <thead><tr>
 <th style="text-align:left;">
@@ -2450,7 +2422,7 @@ relay, by “chaining the equating”. This means nothing else as
 transforming scores from “A” into the format of “C” and then onwards to
 the format of “B”. We enable this with the <code><a href="../reference/ql_prepare.html">ql_prepare()</a></code>
 argument <code>use_relay = TRUE</code>.</p>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span>use_relay <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## </span></span></code></pre>
 <pre><code><span><span class="co">## <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">QuestionLink Object Type: QuestionLink Prepare</span> <span style="color: #00BBBB;">──────────────────────────────</span></span></span></code></pre>
@@ -2476,7 +2448,7 @@ argument <code>use_relay = TRUE</code>.</p>
 also “relay connections”. And indeed, if we look at the possible
 connections again, we see that “A” and “B” can now be harmonized with
 <code>relay</code> connections:</p>
-<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span>use_relay <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"connections"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">source_question</span>,<span class="va">target_question</span>,<span class="va">connection_type</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -2485,8 +2457,6 @@ connections again, we see that “A” and “B” can now be harmonized with
 <span>                       values_from <span class="op">=</span> <span class="va">n</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">format_table</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `summarise()` has grouped output by 'source_question', 'target_question'. You</span></span>
-<span><span class="co">## can override using the `.groups` argument.</span></span></code></pre>
 <table class="table table" style="width: auto !important; ">
 <thead><tr>
 <th style="text-align:left;">
@@ -2591,7 +2561,7 @@ NA
 </table>
 <p>If we allow <strong>both options</strong> at the same time, we get
 all desired connections:</p>
-<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span></span>
 <span>    time_relaxation <span class="op">=</span> <span class="fl">1</span> ,</span>
@@ -2603,8 +2573,6 @@ all desired connections:</p>
 <span>                       values_from <span class="op">=</span> <span class="va">n</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">format_table</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `summarise()` has grouped output by 'source_question', 'target_question'. You</span></span>
-<span><span class="co">## can override using the `.groups` argument.</span></span></code></pre>
 <table class="table table" style="width: auto !important; ">
 <thead><tr>
 <th style="text-align:left;">
@@ -2832,7 +2800,7 @@ NA
 </table>
 <p>All that remains to do is to save the results into its own object for
 the next step:</p>
-<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prepared_connections</span> <span class="op">&lt;-</span> <span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span></span>
 <span>    time_relaxation <span class="op">=</span> <span class="fl">1</span> ,</span>
@@ -2850,14 +2818,14 @@ connections. To do this, we simply call <code>ql_harmonize</code> on the
 ql_prepare object. Note that there are no additional attributes or
 settings here. This is because all harmonization parameters were defined
 in the prepare stage.</p>
-<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">harmonization_solution</span> <span class="op">&lt;-</span> <span class="va">prepared_connections</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_harmonize.html">ql_harmonize</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Looking at the output, we see that we have now completed the second
 of three steps towards our data harmonization!</p>
 <p>Before we move on, let us take a quick look at the object that
 <code>ql_harmonize</code> has created:</p>
-<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">harmonization_solution</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span>max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##  'questionlink' chr "questionlink_object"</span></span>
 <span><span class="co">##  - attr(*, "connections_rec_tbl")= tibble [1,610 × 13] (S3: tbl_df/tbl/data.frame)</span></span>
@@ -2875,7 +2843,7 @@ connection that we have found with <code>ql_prepare</code>. These are
 stored in the attribute <code>connections_rec_tbl</code> within the
 object created by <code>ql_harmonize</code>. Below we look at one such
 connection (i.e., one row in <code>connections_rec_tbl</code> ):</p>
-<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">n_connections</span> <span class="op">&lt;-</span> <span class="va">harmonization_solution</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"connections_rec_tbl"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -2987,8 +2955,8 @@ NA
 recoding_tables
 </td>
 <td style="text-align:left;">
-list(source = 1:5, target = c(0.505125284738041, 0.704441913439636,
-1.4874715261959, 3.19804400977995, 5.11206896551724))
+list(source = 1:5, target = c(0.505331753554502, 0.692535545023697,
+1.49526066350711, 3.20379146919431, 5.125))
 </td>
 </tr>
 </tbody></table>
@@ -3002,7 +2970,7 @@ instrument pair (“A” and “B”) in both directions (“A” -&gt; “B” 
 these 1610 down. Specifically, QuestionLink chooses the median
 equivalent for each score across all harmonization solutions for a given
 instrument pair and direction (e.g., “A” -&gt; “B”).</p>
-<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">n_connections_A_B</span> <span class="op">&lt;-</span> <span class="va">harmonization_solution</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"connections_rec_tbl"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
@@ -3014,7 +2982,7 @@ instrument pair and direction (e.g., “A” -&gt; “B”).</p>
 “source” question “A” towards the format of the “target” question “B”.
 However, this is condensed down into exactly one recoding table in the
 attribute <code>summarized_rec_tbl</code>:</p>
-<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">harmonization_solution</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"summarized_rec_tbl"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
@@ -3055,7 +3023,7 @@ dummy
 1
 </td>
 <td style="text-align:right;">
-1.884572
+1.867789
 </td>
 </tr>
 <tr>
@@ -3072,7 +3040,7 @@ dummy
 2
 </td>
 <td style="text-align:right;">
-2.811093
+2.819124
 </td>
 </tr>
 <tr>
@@ -3089,7 +3057,7 @@ dummy
 3
 </td>
 <td style="text-align:right;">
-3.510645
+3.503703
 </td>
 </tr>
 <tr>
@@ -3106,7 +3074,7 @@ dummy
 4
 </td>
 <td style="text-align:right;">
-4.266334
+4.269615
 </td>
 </tr>
 <tr>
@@ -3123,7 +3091,7 @@ dummy
 5
 </td>
 <td style="text-align:right;">
-4.997052
+4.983709
 </td>
 </tr>
 </tbody>
@@ -3188,7 +3156,7 @@ all questions to harmonize the whole dataset in one go.</p>
 <p>This is done by applying the <code><a href="../reference/ql_transform.html">ql_transform()</a></code> function
 directly to the harmonization solution generated by
 <code><a href="../reference/ql_harmonize.html">ql_harmonize()</a></code>, like so:</p>
-<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">harmonization_solution</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_transform.html">ql_transform</a></span><span class="op">(</span>target_question <span class="op">=</span> <span class="st">"A"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># Note that we harmonize towards "A"</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html" class="external-link">sample_n</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -3217,27 +3185,7 @@ median_equivalent
 <tbody>
 <tr>
 <td style="text-align:right;">
-1984
-</td>
-<td style="text-align:left;">
-C
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:right;">
-2.680100
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1987
+1995
 </td>
 <td style="text-align:left;">
 D
@@ -3252,107 +3200,7 @@ D
 A
 </td>
 <td style="text-align:right;">
-1.562674
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1986
-</td>
-<td style="text-align:left;">
-B
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:right;">
-2.321052
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1988
-</td>
-<td style="text-align:left;">
-C
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:right;">
-1.722060
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1991
-</td>
-<td style="text-align:left;">
-D
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:right;">
-2.070150
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2010
-</td>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:right;">
-3.000000
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1985
-</td>
-<td style="text-align:left;">
-D
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:right;">
-2.879868
+1.599976
 </td>
 </tr>
 <tr>
@@ -3372,15 +3220,15 @@ B
 A
 </td>
 <td style="text-align:right;">
-3.529298
+3.520965
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-1984
+2012
 </td>
 <td style="text-align:left;">
-B
+A
 </td>
 <td style="text-align:right;">
 4
@@ -3392,12 +3240,72 @@ B
 A
 </td>
 <td style="text-align:right;">
-3.529298
+4.000000
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-1988
+2008
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+4.095008
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2016
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+3.330658
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1997
+</td>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+2.104740
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2000
 </td>
 <td style="text-align:left;">
 C
@@ -3412,7 +3320,67 @@ C
 A
 </td>
 <td style="text-align:right;">
-2.680100
+2.667368
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1986
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+3.520965
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2012
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+4.000000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2006
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+3.330658
 </td>
 </tr>
 </tbody>
@@ -3438,7 +3406,7 @@ research data in the following example.</p>
 <code>source_question</code> and <code>response</code>. The contents of
 <code>source_question</code> must match the question names in the
 harmonization data.</p>
-<div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">harmonization_data</span> <span class="op">&lt;-</span> <span class="va">qlink_format_df</span></span>
 <span></span>
 <span><span class="va">research_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
@@ -3478,7 +3446,7 @@ A
 B
 </td>
 <td style="text-align:right;">
-2
+3
 </td>
 </tr>
 <tr>
@@ -3486,7 +3454,7 @@ B
 C
 </td>
 <td style="text-align:right;">
-4
+1
 </td>
 </tr>
 <tr>
@@ -3494,7 +3462,7 @@ C
 D
 </td>
 <td style="text-align:right;">
-5
+10
 </td>
 </tr>
 <tr>
@@ -3502,7 +3470,7 @@ D
 A
 </td>
 <td style="text-align:right;">
-3
+2
 </td>
 </tr>
 <tr>
@@ -3510,7 +3478,7 @@ A
 B
 </td>
 <td style="text-align:right;">
-4
+1
 </td>
 </tr>
 </tbody>
@@ -3525,20 +3493,16 @@ recoded responses as <code>median_equivalent</code>. Also note that
 while missing values have to be removed from the harmonization data,
 they are no problem in the research data. <code>ql_transform</code>
 simply preserves these missings in the harmonized solution.</p>
-<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">harmonized_research_data</span> <span class="op">&lt;-</span> <span class="va">harmonization_data</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span>time_relaxation <span class="op">=</span> <span class="fl">1</span>, </span>
 <span>             use_relay <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_harmonize.html">ql_harmonize</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># harmonize with harmonization data</span></span>
 <span>  <span class="fu"><a href="../reference/ql_transform.html">ql_transform</a></span><span class="op">(</span></span>
 <span>    target_question <span class="op">=</span> <span class="st">"A"</span>,</span>
-<span>    new_data <span class="op">=</span> <span class="va">research_data</span><span class="op">)</span> <span class="co"># introduce the research data</span></span></code></pre></div>
-<pre><code><span><span class="co">## Warning: <span style="color: #00BBBB;">ℹ</span> `new_data` contains responses with no numerical equivalent in the recoding</span></span>
-<span><span class="co">##   database.</span></span>
-<span><span class="co">## The following entries have no numerical equivalent:</span></span>
-<span><span class="co">## <span style="color: #00BBBB;">•</span> Source question: | Population: | Response option: NA</span></span></code></pre>
-<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">harmonized_research_data</span> <span class="op">|&gt;</span> </span>
+<span>    new_data <span class="op">=</span> <span class="va">research_data</span><span class="op">)</span> <span class="co"># introduce the research data</span></span>
+<span></span>
+<span><span class="va">harmonized_research_data</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">format_table</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <table class="table table" style="width: auto !important; ">
@@ -3568,54 +3532,12 @@ A
 A
 </td>
 <td style="text-align:right;">
-2.000000
+2.0000000
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 B
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:right;">
-1.135288
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-C
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:right;">
-4.132412
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-D
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:right;">
-3.269736
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-A
 </td>
 <td style="text-align:right;">
 3
@@ -3624,7 +3546,49 @@ A
 A
 </td>
 <td style="text-align:right;">
-3.000000
+2.2928975
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+1.7240165
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+5.3277307
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+2.0000000
 </td>
 </tr>
 <tr>
@@ -3632,13 +3596,13 @@ A
 B
 </td>
 <td style="text-align:right;">
-4
+1
 </td>
 <td style="text-align:left;">
 A
 </td>
 <td style="text-align:right;">
-3.529298
+0.5174825
 </td>
 </tr>
 </tbody>
@@ -3664,7 +3628,7 @@ provided for <code><a href="../reference/ql_prepare.html">ql_prepare()</a></code
 <code><a href="../reference/ql_prepare.html">ql_prepare()</a></code>, it is often a good idea to save the results
 of <code>ql_repare()</code> into a variable and examine it before
 progressing further:</p>
-<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prepare_object</span> <span class="op">&lt;-</span> <span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span></span>
 <span>    use_relay <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -3678,7 +3642,7 @@ progressing further:</p>
 <code>ql_prepare</code> object leads to an extended version of just
 <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code>ing the object. This is always a good first
 step.</p>
-<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prepare_object</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## </span></span></code></pre>
 <pre><code><span><span class="co">## <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Summary: QuestionLink Prepare</span> <span style="color: #00BBBB;">───────────────────────────────────────────────</span></span></span></code></pre>
@@ -3748,7 +3712,7 @@ the target question, then all questions are harmonized (even if they
 themselves are only connected “to some”)! There will be a clear example
 for this in the article on advanced use cases under the section <a href="https://matroth.github.io/questionlink/articles/advanced_use_cases#choosing-the-right-target-question">choosing
 the right target question</a>.</p>
-<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">prepare_object</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="questionlink_tutorial_files/figure-html/unnamed-chunk-50-1.png" width="700"></p>
 </div>
@@ -3760,21 +3724,13 @@ the right target question</a>.</p>
 the data read into <code><a href="../reference/ql_prepare.html">ql_prepare()</a></code>. However, if we apply it to
 our simulated data set with its synthetic perfection, all we get are
 valid check-marks for all four questions.</p>
-<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span></span>
 <span>    use_relay <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>    time_relaxation <span class="op">=</span> <span class="fl">1</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_check.html">ql_check</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">A ✔</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">B ✔</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">C ✔</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">D ✔</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
 <p>So we have to break our data to showcase <code><a href="../reference/ql_check.html">ql_check()</a></code>.</p>
 <p><strong>Not all response between minimum and maximum
 used</strong></p>
@@ -3784,7 +3740,7 @@ but unlikely that there are no respondents who chose a 3. Thus,
 between the minimum and maximum of <em>Question</em> were used” and then
 details the year(s) in which that was the case. To show this, we filter
 all cases where respondents chose 3 to question B:</p>
-<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">question</span> <span class="op">==</span> <span class="st">"B"</span> <span class="op">&amp;</span> <span class="va">response</span> <span class="op">==</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span></span>
@@ -3792,17 +3748,6 @@ all cases where respondents chose 3 to question B:</p>
 <span>    time_relaxation <span class="op">=</span> <span class="fl">1</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_check.html">ql_check</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">A ✔</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">B</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## <span style="font-weight: bold;">Issue:</span> Not all response options between the minimum and maximum of B were used.</span></span></code></pre>
-<pre><code><span><span class="co">## Year(s): 1980, 1982, 1984, 1986, 1988, 1990</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">C ✔</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">D ✔</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
 <p>At this point you might ask how QuestionLink knows what the minimum
 and maximum score of each question is. In our case, it infers that
 information empirically from the data. However, a cleaner way is to
@@ -3819,7 +3764,7 @@ it found. One version with the values 1, 2, 3, 4 and another version
 with the values 1, 2, 3, 4, 5. It also lists the respective years. This
 way we can easily find instances where we read in invalid values, for
 example.</p>
-<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">year</span> <span class="op">==</span> <span class="fl">1980</span> <span class="op">&amp;</span> <span class="va">question</span> <span class="op">==</span> <span class="st">"C"</span> <span class="op">&amp;</span> <span class="va">response</span> <span class="op">==</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span></span>
@@ -3827,26 +3772,6 @@ example.</p>
 <span>    time_relaxation <span class="op">=</span> <span class="fl">1</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_check.html">ql_check</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">A ✔</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">B ✔</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">C</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## <span style="font-weight: bold;">Issue:</span> Mutliple Versions of C were found.</span></span></code></pre>
-<pre><code><span><span class="co">## Version 1</span></span></code></pre>
-<pre><code><span><span class="co">## • Has the following response options: 1, 2, 3, 4</span></span></code></pre>
-<pre><code><span><span class="co">## • Occures in the following years: 1980</span></span></code></pre>
-<pre><code><span><span class="co">## Version 2</span></span></code></pre>
-<pre><code><span><span class="co">## • Has the following response options: 1, 2, 3, 4, 5</span></span></code></pre>
-<pre><code><span><span class="co">## • Occures in the following years: 1982, 1984, 1986, 1988, 1990, 1992, 1994,</span></span>
-<span><span class="co">## 1996, 1998, 2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020</span></span></code></pre>
-<pre><code><span><span class="co">## <span style="color: #00BBBB;">ℹ</span> Ensure that each question has only one version by defining a minimum and</span></span>
-<span><span class="co">## maximum of a scale with the scale_min_max argument in ql_prepare() or by only</span></span>
-<span><span class="co">## including one version of the question.</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">D ✔</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
 <p><strong>Negative responses were found</strong></p>
 <p>A special case are negative values. There are some cases where
 negative response values are actually valid. For example, response
@@ -3857,7 +3782,7 @@ new warning: “Negative responses were found for C”. In such cases it is
 best to carefully reexamine the values in your harmonization data with
 <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code> and by looking into the respective survey
 documentation of your data sources.</p>
-<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
 <span>    response <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">question</span> <span class="op">==</span> <span class="st">"C"</span> <span class="op">&amp;</span> <span class="va">response</span> <span class="op">==</span> <span class="fl">1</span>,</span>
@@ -3868,22 +3793,6 @@ documentation of your data sources.</p>
 <span>    time_relaxation <span class="op">=</span> <span class="fl">1</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_check.html">ql_check</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">A ✔</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">B ✔</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">C</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## <span style="font-weight: bold;">Issue:</span> Not all response options between the minimum and maximum of C were used.</span></span></code></pre>
-<pre><code><span><span class="co">## Year(s): 1980, 1982, 1984, 1986, 1988, 1990, 1992, 1994, 1996, 1998, 2000,</span></span>
-<span><span class="co">## 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## <span style="font-weight: bold;">Issue:</span> Negative responses were found for C.:</span></span></code></pre>
-<pre><code><span><span class="co">## Year(s): 1980, 1982, 1984, 1986, 1988, 1990, 1992, 1994, 1996, 1998, 2000,</span></span>
-<span><span class="co">## 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
-<pre><code><span><span class="co">## ── <span style="font-weight: bold;">D ✔</span> ──</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span></code></pre>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

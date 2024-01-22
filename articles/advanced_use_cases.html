@@ -87,8 +87,12 @@ tutorial</a> first.</p>
 capture the same construct in a population. This process is explained in
 detail in the tutorial. This simulated dataset will be used in the code
 examples later on.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Loading necessary packages</span></span>
+<details><summary>
+Data simulation code (click to unfold)
+</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html" class="external-link">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>warning <span class="op">=</span> <span class="cn">FALSE</span>, message <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># Loading necessary packages</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## </span></span>
@@ -225,17 +229,15 @@ examples later on.</p>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">valid_year</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">valid_year</span><span class="op">)</span></span></code></pre></div>
-<p>We simulate data from 1980 to 2020 with deliberate gaps in the time
+</details><p>We simulate data from 1980 to 2020 with deliberate gaps in the time
 series for each question so that we can showcase the purpose of
 QuestionLink.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">plot_question_years</span><span class="op">(</span><span class="va">qlink_format_df</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `summarise()` has grouped output by 'year'. You can override using the</span></span>
-<span><span class="co">## `.groups` argument.</span></span></code></pre>
 <p><img src="advanced_use_cases_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
 <p>We also prepare a harmonization solution with QuestionLink, since we
 will explore the resulting object in greater detail in this article.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Creating a ql_prepare() object with the harmonization opportunities</span></span>
 <span></span>
 <span><span class="va">prepared_connections</span> <span class="op">&lt;-</span> <span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
@@ -292,7 +294,7 @@ to be made, we would also recommend choosing a target question that
 follows the heuristic “higher means more” or “better”. That way all
 analyses with the harmonized data become easier to interpret.</p>
 <p>Inverting items is a trivial matter in R:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">invert_item</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">responses</span>, </span>
 <span>                         <span class="va">min_score</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">responses</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span>, </span>
 <span>                         <span class="va">max_score</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">responses</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">)</span></span>
@@ -302,18 +304,18 @@ analyses with the harmonized data become easier to interpret.</p>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>For example for a 5-point scale:</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">invert_item</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 5 4 3 2 1</span></span></code></pre>
 <p>However, it is often better to clearly specifiy the minimum and
 maximum scores. That way, the function works even in data sets where
 respondents did not use the full scale. Consider again a 5-point
 scale:</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#wrong:</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">invert_item</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 5 4 3 2</span></span></code></pre>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#correct:</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">invert_item</span><span class="op">(</span>min_score <span class="op">=</span> <span class="fl">1</span>, max_score <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 4 3 2 1</span></span></code></pre>
@@ -455,7 +457,7 @@ of your source surveys carefully.</p>
 <code><a href="../reference/ql_prepare.html">ql_prepare()</a></code> with a list. This then informs the
 <code><a href="../reference/ql_check.html">ql_check()</a></code> function and leads to more reliable data
 validation checks.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">min_max_list</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>  <span class="st">"A"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">5</span><span class="op">)</span>,</span>
 <span>  <span class="st">"B"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">5</span><span class="op">)</span>,</span>
@@ -464,12 +466,12 @@ validation checks.</p>
 <span><span class="op">)</span></span></code></pre></div>
 <p>Consider the following example. First, we delete all values of 10
 from instrument “D” to corrupt our data.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">corrupted_data</span> <span class="op">&lt;-</span> <span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="va">question</span> <span class="op">==</span> <span class="st">"D"</span> <span class="op">&amp;</span> <span class="va">response</span> <span class="op">==</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Then we run <code><a href="../reference/ql_check.html">ql_check()</a></code> without providing additional
 scale information:</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">corrupted_data</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span></span>
 <span>    use_relay <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -490,7 +492,7 @@ scale information:</p>
 scale.</p>
 <p>However, if we provide the scale information, <code><a href="../reference/ql_check.html">ql_check()</a></code>
 now spots the inconsistency!</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">min_max_list</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>  <span class="st">"A"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">5</span><span class="op">)</span>,</span>
 <span>  <span class="st">"B"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">5</span><span class="op">)</span>,</span>
@@ -530,7 +532,7 @@ type (or any other object) contains, you can use <code><a href="https://rdrr.io/
 will use the “attributes” <code>summarized_rec_tbl</code> and
 <code>connections_rec_tbl</code>. You can imagine these attributes as
 containers nested inside the larger object.</p>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">harmonization_solution</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span>max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##  'questionlink' chr "questionlink_object"</span></span>
 <span><span class="co">##  - attr(*, "connections_rec_tbl")= tibble [1,610 × 13] (S3: tbl_df/tbl/data.frame)</span></span>
@@ -549,7 +551,7 @@ information from the <code><a href="../reference/ql_harmonize.html">ql_harmonize
 apply <code>|&gt; attr("summarized_rec_tbl")</code> to a
 <code><a href="../reference/ql_harmonize.html">ql_harmonize()</a></code> object. This results in a dataframe with all
 recoding tables in one data frame.</p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a ql_harmonize object:</span></span>
 <span><span class="va">harmonization_solution</span> <span class="op">&lt;-</span> <span class="va">qlink_format_df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span></span>
@@ -595,7 +597,7 @@ dummy
 1
 </td>
 <td style="text-align:right;">
-1.8247422
+1.8380109
 </td>
 </tr>
 <tr>
@@ -612,7 +614,7 @@ dummy
 2
 </td>
 <td style="text-align:right;">
-2.7993330
+2.8151448
 </td>
 </tr>
 <tr>
@@ -629,7 +631,7 @@ dummy
 3
 </td>
 <td style="text-align:right;">
-3.5018991
+3.5204789
 </td>
 </tr>
 <tr>
@@ -646,7 +648,7 @@ dummy
 4
 </td>
 <td style="text-align:right;">
-4.2719339
+4.2692576
 </td>
 </tr>
 <tr>
@@ -663,7 +665,7 @@ dummy
 5
 </td>
 <td style="text-align:right;">
-4.9752256
+4.9728916
 </td>
 </tr>
 <tr>
@@ -680,7 +682,7 @@ dummy
 1
 </td>
 <td style="text-align:right;">
-0.6333755
+0.6288687
 </td>
 </tr>
 <tr>
@@ -697,7 +699,7 @@ dummy
 2
 </td>
 <td style="text-align:right;">
-1.2930702
+1.2947186
 </td>
 </tr>
 <tr>
@@ -714,7 +716,7 @@ dummy
 3
 </td>
 <td style="text-align:right;">
-2.4933059
+2.5227461
 </td>
 </tr>
 <tr>
@@ -731,7 +733,7 @@ dummy
 4
 </td>
 <td style="text-align:right;">
-3.8330315
+3.8449385
 </td>
 </tr>
 <tr>
@@ -748,14 +750,14 @@ dummy
 5
 </td>
 <td style="text-align:right;">
-5.0944724
+5.0929250
 </td>
 </tr>
 </tbody>
 </table>
 <p>If you want the recoding information for a specific pair of
 questions, simply filter that data frame:</p>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Looking up recodings from "A" to "C"</span></span>
 <span></span>
 <span><span class="va">harmonization_solution</span> <span class="op">|&gt;</span> </span>
@@ -793,7 +795,7 @@ C
 1
 </td>
 <td style="text-align:right;">
-0.6333755
+0.6288687
 </td>
 </tr>
 <tr>
@@ -807,7 +809,7 @@ C
 2
 </td>
 <td style="text-align:right;">
-1.2930702
+1.2947186
 </td>
 </tr>
 <tr>
@@ -821,7 +823,7 @@ C
 3
 </td>
 <td style="text-align:right;">
-2.4933059
+2.5227461
 </td>
 </tr>
 <tr>
@@ -835,7 +837,7 @@ C
 4
 </td>
 <td style="text-align:right;">
-3.8330315
+3.8449385
 </td>
 </tr>
 <tr>
@@ -849,7 +851,7 @@ C
 5
 </td>
 <td style="text-align:right;">
-5.0944724
+5.0929250
 </td>
 </tr>
 </tbody>
@@ -872,7 +874,7 @@ all connections between the questions and for each connection the
 equating solution in the form of a recoding table.</p>
 <p>A quick look into that data frame shows that it contains a number of
 variables:</p>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">harmonization_solution</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"connections_rec_tbl"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -999,7 +1001,7 @@ recoding tables from.</li>
 </ol>
 <p>The content of each cell in the column <code>recoding_tables</code>
 is itself a nested table.</p>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">harmonization_solution</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"connections_rec_tbl"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">recoding_tables</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -1020,7 +1022,7 @@ target
 1
 </td>
 <td style="text-align:right;">
-0.5066593
+0.5108434
 </td>
 </tr>
 <tr>
@@ -1028,7 +1030,7 @@ target
 2
 </td>
 <td style="text-align:right;">
-0.6908990
+0.7000000
 </td>
 </tr>
 <tr>
@@ -1036,7 +1038,7 @@ target
 3
 </td>
 <td style="text-align:right;">
-1.4589345
+1.5513043
 </td>
 </tr>
 <tr>
@@ -1044,7 +1046,7 @@ target
 4
 </td>
 <td style="text-align:right;">
-3.2467363
+3.2790055
 </td>
 </tr>
 <tr>
@@ -1052,7 +1054,7 @@ target
 5
 </td>
 <td style="text-align:right;">
-5.1097561
+5.1309524
 </td>
 </tr>
 </tbody>
@@ -1062,7 +1064,7 @@ row, one connection” data frame. For our purposes, however, we might
 want to <code><a href="https://tidyr.tidyverse.org/reference/unnest.html" class="external-link">unnest()</a></code> that structure so that one row is one
 source question score harmonized with a specific connection.</p>
 <p>Consider one row (omitting the relay variables for brevity):</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">harmonization_solution</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"connections_rec_tbl"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"relay"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -1118,8 +1120,8 @@ dummy
 direct
 </td>
 <td style="text-align:left;">
-1.0000000, 2.0000000, 3.0000000, 4.0000000, 5.0000000, 0.5066593,
-0.6908990, 1.4589345, 3.2467363, 5.1097561
+1.0000000, 2.0000000, 3.0000000, 4.0000000, 5.0000000, 0.5108434,
+0.7000000, 1.5513043, 3.2790055, 5.1309524
 </td>
 </tr></tbody>
 </table>
@@ -1128,7 +1130,7 @@ rows; one for each of the five possible response options of the source
 question B. This also adds the columns <code>source</code> for the
 source questions scores, and <code>target</code> for the harmonized
 scores towards the target questions format.</p>
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">harmonization_solution</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"connections_rec_tbl"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"relay"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -1192,7 +1194,7 @@ direct
 1
 </td>
 <td style="text-align:right;">
-0.5066593
+0.5108434
 </td>
 </tr>
 <tr>
@@ -1221,7 +1223,7 @@ direct
 2
 </td>
 <td style="text-align:right;">
-0.6908990
+0.7000000
 </td>
 </tr>
 <tr>
@@ -1250,7 +1252,7 @@ direct
 3
 </td>
 <td style="text-align:right;">
-1.4589345
+1.5513043
 </td>
 </tr>
 <tr>
@@ -1279,7 +1281,7 @@ direct
 4
 </td>
 <td style="text-align:right;">
-3.2467363
+3.2790055
 </td>
 </tr>
 <tr>
@@ -1308,7 +1310,7 @@ direct
 5
 </td>
 <td style="text-align:right;">
-5.1097561
+5.1309524
 </td>
 </tr>
 </tbody>
@@ -1323,7 +1325,7 @@ y-axis. Note how there are several “target” equivalent values for each
 “source” score. Specifically, one equivalent for each score per direct
 connection. However, they are very similar across all those direct
 connections. (This will look messier an empirical data!)</p>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">harmonization_solution</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"connections_rec_tbl"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>connection_id <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/row_number.html" class="external-link">row_number</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -1347,7 +1349,7 @@ connections and (2) that they are far messier. The reason is that a
 relay connection performs two equating processes, one chained after the
 other. This means that random measurement and sampling errors are
 amplified.</p>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">harmonization_solution</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"connections_rec_tbl"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>connection_id <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/row_number.html" class="external-link">row_number</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -1374,7 +1376,7 @@ the same and we immediately see that the median aggregated
 <code>relay</code> connections match almost perfectly. The aggregation
 over many links has mitigated the problem of randomness in measurement
 and sampling.</p>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">harmonization_solution</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"connections_rec_tbl"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
@@ -1394,8 +1396,6 @@ and sampling.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html" class="external-link">coord_fixed</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">5.5</span><span class="op">)</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>, minor_breaks <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">5.5</span><span class="op">)</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>, minor_breaks <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `summarise()` has grouped output by 'connection_type'. You can override using</span></span>
-<span><span class="co">## the `.groups` argument.</span></span></code></pre>
 <p><img src="advanced_use_cases_files/figure-html/unnamed-chunk-20-1.png" width="700"></p>
 </div>
 </div>
@@ -1416,7 +1416,7 @@ recoding tables that are specific to that population.</p>
 three times and pretend that these data were gathered from the
 populations, <code>pop_1</code>, <code>pop_2</code>, and
 <code>pop_3</code>:</p>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">multi_pop_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
 <span>  population <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pop_1"</span>, <span class="st">"pop_2"</span>, <span class="st">"pop_3"</span><span class="op">)</span>,</span>
 <span>  data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">qlink_format_df</span>, <span class="va">qlink_format_df</span>, <span class="va">qlink_format_df</span><span class="op">)</span></span>
@@ -1428,7 +1428,7 @@ multi-population mode. It is enough that our input data now has a
 <code>population</code> column. Note how the <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code> of
 the <code><a href="../reference/ql_prepare.html">ql_prepare()</a></code> object now signifies the three populations
 with the message “Populations found:”pop_1”, “pop_2”, and “pop_3”“.</p>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">multi_pop_harmonization_prepared</span> <span class="op">&lt;-</span> <span class="va">multi_pop_data</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span></span>
 <span>    use_relay <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -1494,7 +1494,7 @@ with the message “Populations found:”pop_1”, “pop_2”, and “pop_3”�
 <p>We can also look at the connections plot for each population, simply
 by calling <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code> on the <code><a href="../reference/ql_prepare.html">ql_prepare()</a></code>
 object:</p>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">multi_pop_harmonization_prepared</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span>combine_population_plots <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [[1]]</span></span></code></pre>
 <p><img src="advanced_use_cases_files/figure-html/unnamed-chunk-23-1.png" width="700"></p>
@@ -1506,7 +1506,7 @@ object:</p>
 <p><img src="advanced_use_cases_files/figure-html/unnamed-chunk-23-3.png" width="700"></p>
 <p>We can then harmonize the entire, multi-population data frame by
 calling <code><a href="../reference/ql_harmonize.html">ql_harmonize()</a></code> and <code><a href="../reference/ql_transform.html">ql_transform()</a></code>:</p>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">multi_pop_harmonization_prepared</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_harmonize.html">ql_harmonize</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_transform.html">ql_transform</a></span><span class="op">(</span></span>
@@ -1550,7 +1550,7 @@ pop_1
 B
 </td>
 <td style="text-align:right;">
-4
+3
 </td>
 <td style="text-align:right;">
 1
@@ -1559,7 +1559,7 @@ B
 A
 </td>
 <td style="text-align:right;">
-3.524252
+2.269203
 </td>
 </tr>
 <tr>
@@ -1573,7 +1573,7 @@ pop_1
 C
 </td>
 <td style="text-align:right;">
-3
+1
 </td>
 <td style="text-align:right;">
 1
@@ -1582,53 +1582,7 @@ C
 A
 </td>
 <td style="text-align:right;">
-3.343797
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-pop_1
-</td>
-<td style="text-align:right;">
-1980
-</td>
-<td style="text-align:left;">
-B
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:right;">
-2.305090
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-pop_1
-</td>
-<td style="text-align:right;">
-1980
-</td>
-<td style="text-align:left;">
-C
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:right;">
-2.659807
+1.719640
 </td>
 </tr>
 <tr>
@@ -1651,7 +1605,7 @@ B
 A
 </td>
 <td style="text-align:right;">
-3.524252
+3.520625
 </td>
 </tr>
 <tr>
@@ -1674,7 +1628,53 @@ C
 A
 </td>
 <td style="text-align:right;">
-3.343797
+3.322346
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pop_1
+</td>
+<td style="text-align:right;">
+1980
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+2.269203
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pop_1
+</td>
+<td style="text-align:right;">
+1980
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+1.719640
 </td>
 </tr>
 </tbody>
@@ -1687,7 +1687,7 @@ directions, for each population. Note that with <code><a href="https://dplyr.tid
 condense the recoding tables down to one line per recoding table,
 arriving at 48 recoding tables (and rows): 4 instruments * 4 instruments
 * 3 populations = 48.</p>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">multi_pop_harmonization_prepared</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ql_harmonize.html">ql_harmonize</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"summarized_rec_tbl"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -1712,7 +1712,7 @@ harmonization data in population 1. In such cases QuestionLink makes its
 inability to harmonize some values transparent. Specifically, it details
 which scores of which instrument in which population were not
 harmonized.</p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">multi_pop_research_data</span> <span class="op">&lt;-</span> <span class="va">multi_pop_data</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute</a></span><span class="op">(</span><span class="va">population</span>,</span>
 <span>            source_question <span class="op">=</span> <span class="va">question</span>,</span>
@@ -1731,24 +1731,11 @@ harmonized.</p>
 <span>    target_question <span class="op">=</span> <span class="st">"A"</span>,</span>
 <span>    new_data <span class="op">=</span> <span class="va">multi_pop_research_data</span></span>
 <span>  <span class="op">)</span> <span class="op">-&gt;</span> <span class="va">incomplete_solution</span></span></code></pre></div>
-<pre><code><span><span class="co">## Warning: <span style="color: #00BBBB;">ℹ</span> `new_data` contains responses with no numerical equivalent in the recoding</span></span>
-<span><span class="co">##   database.</span></span>
-<span><span class="co">## The following entries have no numerical equivalent:</span></span>
-<span><span class="co">## <span style="color: #00BBBB;">•</span> Source question: | Population: pop_1 | Response option: 1</span></span>
-<span><span class="co">## <span style="color: #00BBBB;">•</span> Source question: | Population: pop_1 | Response option: 10</span></span>
-<span><span class="co">## <span style="color: #00BBBB;">•</span> Source question: | Population: pop_1 | Response option: 2</span></span>
-<span><span class="co">## <span style="color: #00BBBB;">•</span> Source question: | Population: pop_1 | Response option: 3</span></span>
-<span><span class="co">## <span style="color: #00BBBB;">•</span> Source question: | Population: pop_1 | Response option: 4</span></span>
-<span><span class="co">## <span style="color: #00BBBB;">•</span> Source question: | Population: pop_1 | Response option: 5</span></span>
-<span><span class="co">## <span style="color: #00BBBB;">•</span> Source question: | Population: pop_1 | Response option: 6</span></span>
-<span><span class="co">## <span style="color: #00BBBB;">•</span> Source question: | Population: pop_1 | Response option: 7</span></span>
-<span><span class="co">## <span style="color: #00BBBB;">•</span> Source question: | Population: pop_1 | Response option: 8</span></span>
-<span><span class="co">## <span style="color: #00BBBB;">•</span> Source question: | Population: pop_1 | Response option: 9</span></span></code></pre>
 <p>If we look at some examples for question A, we see that QuestionLink
 has harmonized responses to question A in population 2 and 3. In
 population 1, however, it has added NA values to indicate that no
 harmonization solution was possible.</p>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span> <span class="va">incomplete_solution</span> <span class="op">|&gt;</span> </span>
 <span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">source_question</span> <span class="op">==</span> <span class="st">"A"</span> <span class="op">|</span> <span class="va">target_question</span> <span class="op">==</span> <span class="st">"A"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -1798,13 +1785,13 @@ pop_2
 B
 </td>
 <td style="text-align:right;">
-4
+3
 </td>
 <td style="text-align:left;">
 A
 </td>
 <td style="text-align:right;">
-3.524252
+2.269203
 </td>
 </tr>
 <tr>
@@ -1815,13 +1802,13 @@ pop_3
 B
 </td>
 <td style="text-align:right;">
-4
+3
 </td>
 <td style="text-align:left;">
 A
 </td>
 <td style="text-align:right;">
-3.524252
+2.269203
 </td>
 </tr>
 </tbody>
@@ -1844,7 +1831,7 @@ format to harmonize) is up to convenience. However, there are edge cases
 where the choice of target question determines how many other questions
 we can harmonize towards it.</p>
 <p>Consider the following case:</p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">chain_limit_prep</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
 <span>  question <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
@@ -1881,7 +1868,7 @@ B)</p></li>
 <p>Looking into the <code>connection</code> attribute of the
 <code><a href="../reference/ql_prepare.html">ql_prepare()</a></code> object, we can easily verify this with a bit
 of data wrangling:</p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">number_of_questions</span> <span class="op">&lt;-</span> <span class="va">chain_limit_prep</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">question</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -1916,9 +1903,6 @@ of data wrangling:</p>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">question</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">full_join</a></span><span class="op">(</span><span class="va">question_connections_table</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## `summarise()` has grouped output by 'year'. You can override using the</span></span>
-<span><span class="co">## `.groups` argument.</span></span>
-<span><span class="co">## Joining with `by = join_by(question)`</span></span></code></pre>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 44 × 3</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># Groups:   year [32]</span></span></span>
 <span><span class="co">##     year question question_connections</span></span>
@@ -2055,7 +2039,7 @@ then you can use the <code>limits</code> argument in
 minimum and maximum number of years to display. If you choose only the
 range of the random sample surveys, the experiments are not
 displayed.</p>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Experimental years dummy data:</span></span>
 <span><span class="va">experimental_years_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
 <span>  question <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span><span class="op">)</span>,</span>
@@ -2068,7 +2052,7 @@ displayed.</p>
 <span>  <span class="fu"><a href="../reference/ql_prepare.html">ql_prepare</a></span><span class="op">(</span>use_relay <span class="op">=</span> <span class="cn">TRUE</span>, time_relaxation <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> </span></code></pre></div>
 <p>If we add negative year numbers to our data, the <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code>
 becomes unreadable:</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Without limits</span></span>
 <span></span>
 <span><span class="va">experimental_years_data</span> <span class="op">|&gt;</span> </span>
@@ -2076,14 +2060,11 @@ becomes unreadable:</p>
 <p><img src="advanced_use_cases_files/figure-html/unnamed-chunk-31-1.png" width="700"></p>
 <p>However, if we exclude the experimental years, then it works as
 normal:</p>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># With limits</span></span>
 <span><span class="va">experimental_years_data</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1980</span>, <span class="fl">2020</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Scale for <span style="color: #00BB00;">x</span> is already present.</span></span>
-<span><span class="co">## Adding another scale for <span style="color: #00BB00;">x</span>, which will replace the existing scale.</span></span></code></pre>
-<pre><code><span><span class="co">## Warning: Removed 2 rows containing missing values (`geom_point()`).</span></span></code></pre>
 <p><img src="advanced_use_cases_files/figure-html/unnamed-chunk-32-1.png" width="700"></p>
 <p>If you want to clearly designate specific “years” as experiments, you
 can proceed as follows. Here we set two imaginary experiments to 1960
@@ -2091,7 +2072,7 @@ and 1970, a bit away from the earliest random sample data from 1980.
 Then we define labels for our experiments and supply those labels inside
 <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous()</a></code> as a custom <code>~</code> lambda
 function with <code><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse()</a></code>.</p>
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Experimental years dummy data:</span></span>
 <span><span class="va">experimental_years_data_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
 <span>  question <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span><span class="op">)</span>,</span>
@@ -2117,8 +2098,6 @@ function with <code><a href="https://rdrr.io/r/base/ifelse.html" class="external
 <span>    labels <span class="op">=</span> <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">.x</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/labels.html" class="external-link">labels</a></span><span class="op">(</span><span class="va">experiment_labels</span><span class="op">)</span>, </span>
 <span>                     <span class="va">experiment_labels</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">]</span>, </span>
 <span>                     <span class="va">.x</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Scale for <span style="color: #00BB00;">x</span> is already present.</span></span>
-<span><span class="co">## Adding another scale for <span style="color: #00BB00;">x</span>, which will replace the existing scale.</span></span></code></pre>
 <p><img src="advanced_use_cases_files/figure-html/unnamed-chunk-33-1.png" width="700"></p>
 </div>
 </div>
