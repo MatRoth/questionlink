@@ -25,4 +25,4 @@ However, before you invest the time to understand our package, note that there m
 
 - If you want to harmonize two psychometric multi-item scales, which have at least some identical items in common, consider NEAT Equating (Non-equivalent Groups with Anchor Tests Equating). 
 - If you only want to harmonize two single-item instruments and you have a split-half experiment varying the two, simply apply the [Equate Package](https://github.com/talbano/equate) directly.
-- If you have a dataset, where all respondents answered both instruments (ideally in random order), then consider applying a [calibrated multiple imputation approach](https://doi.org/10.1002/sim.6562) instead.
+- If you have a dataset, where all respondents answered both instruments (ideally in random order), then you could consider applying the [calibrated multiple imputation approach](https://doi.org/10.1002/sim.6562).
